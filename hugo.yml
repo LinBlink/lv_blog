@@ -21,17 +21,20 @@ languages:
     menu:
       main:
         - name: "🤔思考"
-          url: "/categories/thinking/"
+          url: "/categories/思考/"
           weight: 10
         - name: "💻编程"
-          url: "/categories/programming/"
+          url: "/categories/编程/"
           weight: 20
         - name: "🎹钢琴"
-          url: "/categories/piano/"
+          url: "/categories/钢琴/"
           weight: 30
         - name: "🌙故事"
-          url: "/categories/stories/"
+          url: "/categories/故事/"
           weight: 40
+        - name: "🔨项目"
+          url: "/categories/项目/"
+          weight: 41
         - name: "所有分类"
           url: "/categories/"
           weight: 50
@@ -48,7 +51,7 @@ languages:
     menu:
       main:
         - name: "🤔Thoughts"
-          url: "/categories/thinking/"   # 与中文保持同一 taxonomy slug
+          url: "/categories/thoughts/"   # 与中文保持同一 taxonomy slug
           weight: 10
         - name: "💻Programming"
           url: "/categories/programming/"
@@ -59,7 +62,10 @@ languages:
         - name: "🌙Stories"
           url: "/categories/stories/"
           weight: 40
-        - name: "All Categories"
+        - name: "🔨Projects"
+          url: "/categories/projects/"
+          weight: 41
+        - name: "Categories"
           url: "/categories/"
           weight: 50
         - name: "Tags"
@@ -76,6 +82,7 @@ params:
   ShowCodeCopyButtons: true   # 代码块显示复制按钮
   ShowToc: true               # 显示文章目录
   TocOpen: false              # 目录默认折叠
+  dateFormat: "2006-01-02 05:04:05 AM"
 
 # 输出格式（启用 RSS）
 outputs:
