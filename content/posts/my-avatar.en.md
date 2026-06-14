@@ -7,6 +7,6 @@ title = 'My Avatar'
 
 here are two avatars I used :)
 
-![c379afe279aef31a796cf983d6f7f16b5bb32720](https://img.wathan.cn/20260614172159279.webp)
+{{< figure src="https://img.wathan.cn/20260614172159279.webp" width="300px" alt="我的头像1" title="头像1" >}}
 
-![1db6727fe9bc72b655880d0e9f01c87b084703f3](https://img.wathan.cn/20260614172209585.webp)
+{{< figure src="https://img.wathan.cn/20260614172209585.webp" width="300px" alt="我的头像2" title="头像2" >}}
