@@ -1,4 +1,4 @@
-baseURL = 'https://example.org/'
+baseURL = 'lv-blog.pages.dev'
 locale = 'en-us'
-title = 'My New Hugo Project'
+title = 'LOCRIAN_V BLOG 博客'
 theme = 'PaperMod'
