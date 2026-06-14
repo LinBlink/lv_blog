@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Posts on LOCRIAN_V Blog</title>
-    <link>http://localhost:51779/en/posts/</link>
+    <link>http://localhost:1313/en/posts/</link>
     <description>Recent content in Posts on LOCRIAN_V Blog</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 14 Jun 2026 15:30:07 +0800</lastBuildDate>
-    <atom:link href="http://localhost:51779/en/posts/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/en/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>My Avatar</title>
-      <link>http://localhost:51779/en/posts/my-avatar/</link>
+      <link>http://localhost:1313/en/posts/my-avatar/</link>
       <pubDate>Sun, 14 Jun 2026 15:30:07 +0800</pubDate>
-      <guid>http://localhost:51779/en/posts/my-avatar/</guid>
+      <guid>http://localhost:1313/en/posts/my-avatar/</guid>
       <description>&lt;p&gt;here are two avatars I used :)&lt;/p&gt;
 &lt;figure&gt;
     &lt;img loading=&#34;lazy&#34; src=&#34;https://img.wathan.cn/20260614172159279.webp&#34;
@@ -30,18 +30,17 @@
     </item>
     <item>
       <title>Resume</title>
-      <link>http://localhost:51779/en/posts/resume/</link>
+      <link>http://localhost:1313/en/posts/resume/</link>
       <pubDate>Sun, 14 Jun 2026 14:20:24 +0800</pubDate>
-      <guid>http://localhost:51779/en/posts/resume/</guid>
+      <guid>http://localhost:1313/en/posts/resume/</guid>
       <description>&lt;p&gt;Resume has not completed yet .&lt;/p&gt;</description>
     </item>
     <item>
       <title>Sudden Sensorineural Hearing Loss Treatment Process</title>
-      <link>http://localhost:51779/en/posts/sudden-sensorineural-hearing-loss-treatment-process/</link>
+      <link>http://localhost:1313/en/posts/sudden-sensorineural-hearing-loss-treatment-process/</link>
       <pubDate>Wed, 12 Nov 2025 12:24:27 +0800</pubDate>
-      <guid>http://localhost:51779/en/posts/sudden-sensorineural-hearing-loss-treatment-process/</guid>
-      <description>&lt;h4 id=&#34;2025&#34;&gt;2025&lt;/h4&gt;
-&lt;h4 id=&#34;september-22-monday--day-1-sudden-onset&#34;&gt;September 22, Monday — Day 1: Sudden onset&lt;/h4&gt;
+      <guid>http://localhost:1313/en/posts/sudden-sensorineural-hearing-loss-treatment-process/</guid>
+      <description>&lt;h4 id=&#34;september-22-monday--day-1-sudden-onset&#34;&gt;September 22, Monday — Day 1: Sudden onset&lt;/h4&gt;
 &lt;p&gt;Woke up in the morning with a blocked feeling in the right ear; the left ear was normal. I assumed it was just ear congestion or possibly otitis media, something that would resolve on its own, so I didn’t pay much attention.&lt;/p&gt;
 &lt;h4 id=&#34;september-23-tuesday--day-2&#34;&gt;September 23, Tuesday — Day 2&lt;/h4&gt;
 &lt;p&gt;In addition to the blocked sensation, I noticed an echo when hearing external speech. I started to feel something was wrong, but I still didn’t think it was serious and prioritized work.&lt;/p&gt;</description>

@@ -1,11 +1,9 @@
 +++
 date = '2025-11-12T12:24:27+08:00'
-draft = false
+draft = true
 title = '突发性耳聋治疗过程'
 categories = ["生活"]
 +++
-
-#### 2025
 
 #### 9月22日 星期一 DAY 1 突然患病
 

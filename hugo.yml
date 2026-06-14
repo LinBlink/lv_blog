@@ -2,11 +2,12 @@ baseURL: 'https://lv-blog.pages.dev/'
 title: 'LOCRIAN_V blog 博客'
 theme: 'PaperMod'
 defaultContentLanguage: 'zh'
+defaultContentLanguageInSubdir: false  # 中文为根路径，不加 /zh/ 前缀
 
 markup:
   goldmark:
     renderer:
-      unsafe: true # 允许在 Markdown 中使用原生 HTML
+      unsafe: true  # 允许在 Markdown 中使用原生 HTML
 
 # 多语言配置
 languages:
@@ -16,20 +17,21 @@ languages:
     title: '洛克里亚的五度 博客'
     locale: 'zh-cn'
     weight: 1
-    # 中文版导航栏
+    params:
+      author: "LOCRIAN_V"
     menu:
       main:
         - name: "🤔思考"
-          url: "/categories/thinking"
+          url: "/categories/thinking/"
           weight: 10
         - name: "💻编程"
-          url: "/categories/programming"
+          url: "/categories/programming/"
           weight: 20
         - name: "🎹钢琴"
-          url: "/categories/piano"
+          url: "/categories/piano/"
           weight: 30
         - name: "🌙故事"
-          url: "/categories/stories"
+          url: "/categories/stories/"
           weight: 40
         - name: "所有分类"
           url: "/categories/"
@@ -40,29 +42,61 @@ languages:
 
   # ---------------- 英文版配置 ----------------
   en:
-
     label: "English"
     title: 'LOCRIAN_V Blog'
     locale: 'en-us'
     weight: 2
-    # 英文版导航栏
+    params:
+      author: "LOCRIAN_V"
     menu:
       main:
         - name: "🤔Thoughts"
-          url: "/en/categories/thoughts"
+          url: "/categories/thinking/"   # 与中文保持同一 taxonomy slug
           weight: 10
         - name: "💻Programming"
-          url: "/en/categories/programming"
+          url: "/categories/programming/"
           weight: 20
         - name: "🎹Piano"
-          url: "/en/categories/piano"
+          url: "/categories/piano/"
           weight: 30
         - name: "🌙Stories"
-          url: "/en/categories/stories"
+          url: "/categories/stories/"
           weight: 40
         - name: "All Categories"
-          url: "/en/categories/"
+          url: "/categories/"
           weight: 50
         - name: "Tags"
-          url: "/en/tags/"
+          url: "/tags/"
           weight: 60
+
+# PaperMod 主题全局参数
+params:
+  defaultTheme: auto          # 跟随系统深浅色（auto / light / dark）
+  ShowReadingTime: true       # 显示阅读时长
+  ShowBreadCrumbs: true       # 显示面包屑导航
+  ShowPostNavLinks: true      # 文章底部上下篇导航
+  ShowShareButtons: false     # 关闭分享按钮（国内环境意义不大）
+  ShowCodeCopyButtons: true   # 代码块显示复制按钮
+  ShowToc: true               # 显示文章目录
+  TocOpen: false              # 目录默认折叠
+  showPoweredBy: false
+  profileMode:
+    enabled: false
+
+  # 首页 profile 模式（按需开启）
+  # homeInfoParams:
+  #   Title: "Hi, I'm LOCRIAN_V"
+  #   Content: "思考 · 编程 · 钢琴 · 故事"
+
+  socialIcons:
+    - name: github
+      url: "https://github.com/your-username"   # 替换为你的 GitHub
+    # - name: rss
+    #   url: "/index.xml"
+
+# 输出格式（启用 RSS）
+outputs:
+  home:
+    - HTML
+    - RSS
+    - JSON   # PaperMod 搜索功能依赖 JSON
