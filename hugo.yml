@@ -8,7 +8,8 @@ markup:
   goldmark:
     renderer:
       unsafe: true  # 允许在 Markdown 中使用原生 HTML
-
+      
+     
 # 多语言配置
 languages:
   # ---------------- 中文版配置 ----------------
@@ -17,8 +18,6 @@ languages:
     title: '洛克里亚的五度 博客'
     locale: 'zh-cn'
     weight: 1
-    params:
-      author: "LOCRIAN_V"
     menu:
       main:
         - name: "🤔思考"
@@ -46,8 +45,6 @@ languages:
     title: 'LOCRIAN_V Blog'
     locale: 'en-us'
     weight: 2
-    params:
-      author: "LOCRIAN_V"
     menu:
       main:
         - name: "🤔Thoughts"
@@ -75,24 +72,10 @@ params:
   ShowReadingTime: true       # 显示阅读时长
   ShowBreadCrumbs: true       # 显示面包屑导航
   ShowPostNavLinks: true      # 文章底部上下篇导航
-  ShowShareButtons: false     # 关闭分享按钮（国内环境意义不大）
+  ShowShareButtons: true     # 关闭分享按钮（国内环境意义不大）
   ShowCodeCopyButtons: true   # 代码块显示复制按钮
   ShowToc: true               # 显示文章目录
   TocOpen: false              # 目录默认折叠
-  showPoweredBy: false
-  profileMode:
-    enabled: false
-
-  # 首页 profile 模式（按需开启）
-  # homeInfoParams:
-  #   Title: "Hi, I'm LOCRIAN_V"
-  #   Content: "思考 · 编程 · 钢琴 · 故事"
-
-  socialIcons:
-    - name: github
-      url: "https://github.com/your-username"   # 替换为你的 GitHub
-    # - name: rss
-    #   url: "/index.xml"
 
 # 输出格式（启用 RSS）
 outputs:
