@@ -2,81 +2,94 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:1313/en/posts/my-avatar/</loc>
+    <loc>http://localhost:51779/en/posts/my-avatar/</loc>
     <lastmod>2026-06-14T15:30:07+08:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/en/posts/</loc>
-    <lastmod>2026-06-14T15:30:07+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-cn"
-                href="http://localhost:1313/posts/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en-us"
-                href="http://localhost:1313/en/posts/"
-                />
-  </url><url>
-    <loc>http://localhost:1313/en/</loc>
+    <loc>http://localhost:51779/en/posts/</loc>
     <lastmod>2026-06-14T15:30:07+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
-                href="http://localhost:1313/"
+                href="http://localhost:51779/posts/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en-us"
-                href="http://localhost:1313/en/"
+                href="http://localhost:51779/en/posts/"
                 />
   </url><url>
-    <loc>http://localhost:1313/en/posts/my-first-english-post/</loc>
-    <lastmod>2026-06-14T15:20:38+08:00</lastmod>
+    <loc>http://localhost:51779/en/</loc>
+    <lastmod>2026-06-14T15:30:07+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="http://localhost:51779/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-us"
+                href="http://localhost:51779/en/"
+                />
   </url><url>
-    <loc>http://localhost:1313/en/categories/</loc>
+    <loc>http://localhost:51779/en/categories/</loc>
     <lastmod>2026-06-14T14:20:24+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
-                href="http://localhost:1313/categories/"
+                href="http://localhost:51779/categories/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en-us"
-                href="http://localhost:1313/en/categories/"
+                href="http://localhost:51779/en/categories/"
                 />
   </url><url>
-    <loc>http://localhost:1313/en/tags/interviewer/</loc>
+    <loc>http://localhost:51779/en/tags/interviewer/</loc>
     <lastmod>2026-06-14T14:20:24+08:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/en/posts/resume/</loc>
+    <loc>http://localhost:51779/en/posts/resume/</loc>
     <lastmod>2026-06-14T14:20:24+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
-                href="http://localhost:1313/posts/resume/"
+                href="http://localhost:51779/posts/resume/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en-us"
-                href="http://localhost:1313/en/posts/resume/"
+                href="http://localhost:51779/en/posts/resume/"
                 />
   </url><url>
-    <loc>http://localhost:1313/en/tags/</loc>
+    <loc>http://localhost:51779/en/tags/</loc>
     <lastmod>2026-06-14T14:20:24+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
-                href="http://localhost:1313/tags/"
+                href="http://localhost:51779/tags/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en-us"
-                href="http://localhost:1313/en/tags/"
+                href="http://localhost:51779/en/tags/"
                 />
   </url><url>
-    <loc>http://localhost:1313/en/categories/work/</loc>
+    <loc>http://localhost:51779/en/categories/work/</loc>
     <lastmod>2026-06-14T14:20:24+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:51779/en/categories/life/</loc>
+    <lastmod>2025-11-12T12:24:27+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:51779/en/posts/sudden-sensorineural-hearing-loss-treatment-process/</loc>
+    <lastmod>2025-11-12T12:24:27+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="http://localhost:51779/posts/sudden-sensorineural-hearing-loss-treatment-process/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-us"
+                href="http://localhost:51779/en/posts/sudden-sensorineural-hearing-loss-treatment-process/"
+                />
   </url>
 </urlset>

@@ -40,6 +40,7 @@ languages:
 
   # ---------------- 英文版配置 ----------------
   en:
+
     label: "English"
     title: 'LOCRIAN_V Blog'
     locale: 'en-us'
