@@ -1,0 +1,28 @@
+# --- Hugo 自动生成的编译产物 ---
+# 每次运行 hugo 命令自动生成的静态网页目录，必须忽略（由托管平台如 Cloudflare Pages/Vercel 自动构建）
+public/
+# Hugo 的本地临时缓存与静态资源优化目录
+resources/
+# Hugo 运行时的进程锁文件
+.hugo_build.lock
+
+# --- 操作系统临时文件 ---
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# --- 开发工具与编辑器缓存 ---
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp
+
+# --- 备份与日志文件 ---
+*.log
