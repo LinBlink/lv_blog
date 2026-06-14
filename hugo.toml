@@ -1,18 +1,69 @@
 baseURL = 'https://lv-blog.pages.dev/'
-locale = 'en-us'
 title = 'LOCRIAN_V BLOG 博客'
+languageCode = 'zh-cn'
 theme = 'PaperMod'
+defaultContentLanguage = 'zh'
 
-[menu]
-  [[menu.main]]
-    name = "分类"
-    url = "/categories/"
-    weight = 10
-  [[menu.main]]
-    name = "标签"
-    url = "/tags/"
-    weight = 20
-  [[menu.main]]
-    name = "归档"
-    url = "/archives/"
-    weight = 30
+[languages]
+  [languages.zh]
+    languageCode = 'zh-cn'
+    languageName = "中文"
+    weight = 1
+    [languages.zh.menu]
+      [[languages.zh.menu.main]]
+        name = "思考"
+        url = "/categories/thinking"
+        weight = 10
+      [[languages.zh.menu.main]]
+        name = "编程"
+        url = "/categories/programming"
+        weight = 20
+      [[languages.zh.menu.main]]
+        name = "钢琴"
+        url = "/categories/piano"
+        weight = 30
+      [[languages.zh.menu.main]]
+        name = "故事"
+        url = "/categories/stories"
+        weight = 40
+      [[languages.zh.menu.main]]
+        name = "所有分类"
+        url = "/categories/"
+        weight = 50
+      [[languages.zh.menu.main]]
+        name = "标签"
+        url = "/tags/"
+        weight = 60
+
+  [languages.en]
+    languageCode = 'en-us'
+    languageName = "English"
+    weight = 2
+    [languages.en.menu]
+      [[languages.en.menu.main]]
+        name = "Thinking"
+        url = "/en/categories/thinking"
+        weight = 10
+      [[languages.en.menu.main]]
+        name = "Programming"
+        url = "/en/categories/programming"
+        weight = 20
+      [[languages.en.menu.main]]
+        name = "Piano"
+        url = "/en/categories/piano"
+        weight = 30
+      [[languages.en.menu.main]]
+        name = "Stories"
+        url = "/en/categories/stories"
+        weight = 40
+      [[languages.en.menu.main]]
+        name = "All Categories"
+        url = "/en/categories/"
+        weight = 50
+      [[languages.en.menu.main]]
+        name = "Tags"
+        url = "/en/tags/"
+        weight = 60
+
+[params]
+  defaultTheme = 'auto'
