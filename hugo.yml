@@ -8,6 +8,9 @@ markup:
     renderer:
       unsafe: true # 允许在 Markdown 中使用原生 HTML
 
+params:
+  hidePoweredBy: true
+
 # 多语言配置
 languages:
   # ---------------- 中文版配置 ----------------
