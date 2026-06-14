@@ -2,6 +2,7 @@
 date = '2025-11-12T12:24:27+08:00'
 draft = false
 title = 'Sudden Sensorineural Hearing Loss Treatment Process'
+categories = ["life"]
 +++
 
 ##### 2025
