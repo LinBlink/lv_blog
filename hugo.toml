@@ -1,29 +1,28 @@
 baseURL = 'https://lv-blog.pages.dev/'
 title = 'LOCRIAN_V BLOG 博客'
-languageCode = 'zh-cn'
 theme = 'PaperMod'
 defaultContentLanguage = 'zh'
 
 [languages]
   [languages.zh]
-    languageCode = 'zh-cn'
-    languageName = "中文"
+    locale = 'zh-cn'
+    label = "中文"
     weight = 1
     [languages.zh.menu]
       [[languages.zh.menu.main]]
-        name = "思考"
+        name = "🤔思考"
         url = "/categories/thinking"
         weight = 10
       [[languages.zh.menu.main]]
-        name = "编程"
+        name = "💻编程"
         url = "/categories/programming"
         weight = 20
       [[languages.zh.menu.main]]
-        name = "钢琴"
+        name = "🎹钢琴"
         url = "/categories/piano"
         weight = 30
       [[languages.zh.menu.main]]
-        name = "故事"
+        name = "🌙故事"
         url = "/categories/stories"
         weight = 40
       [[languages.zh.menu.main]]
@@ -31,29 +30,29 @@ defaultContentLanguage = 'zh'
         url = "/categories/"
         weight = 50
       [[languages.zh.menu.main]]
-        name = "标签"
+        name = "所有标签"
         url = "/tags/"
         weight = 60
 
   [languages.en]
-    languageCode = 'en-us'
-    languageName = "English"
+    locale = 'en-us'
+    label = "English"
     weight = 2
     [languages.en.menu]
       [[languages.en.menu.main]]
-        name = "Thinking"
-        url = "/en/categories/thinking"
+        name = "🤔Thoughts"
+        url = "/en/categories/Thoughts"
         weight = 10
       [[languages.en.menu.main]]
-        name = "Programming"
+        name = "💻Programming"
         url = "/en/categories/programming"
         weight = 20
       [[languages.en.menu.main]]
-        name = "Piano"
+        name = "🎹Piano"
         url = "/en/categories/piano"
         weight = 30
       [[languages.en.menu.main]]
-        name = "Stories"
+        name = "🌙Stories"
         url = "/en/categories/stories"
         weight = 40
       [[languages.en.menu.main]]
