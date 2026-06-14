@@ -3,6 +3,12 @@ title = 'LOCRIAN_V blog 博客'
 theme = 'PaperMod'
 defaultContentLanguage = 'zh'
 
+
+[params]
+	favicon = "/favicon.ico"
+	[params.assets]
+		favicon = "/favicon.ico"
+		
 [languages]
   [languages.zh]
     locale = 'zh-cn'
@@ -63,8 +69,3 @@ defaultContentLanguage = 'zh'
         name = "Tags"
         url = "/en/tags/"
         weight = 60
-
-[params]
-	favicon = "/favicon.ico"
-	[params.assets]
-		favicon = "/favicon.ico"
