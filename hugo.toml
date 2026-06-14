@@ -1,4 +1,4 @@
-baseURL = 'lv-blog.pages.dev'
+baseURL = 'https://lv-blog.pages.dev/'
 locale = 'en-us'
 title = 'LOCRIAN_V BLOG 博客'
 theme = 'PaperMod'
