@@ -2,3 +2,17 @@ baseURL = 'https://lv-blog.pages.dev/'
 locale = 'en-us'
 title = 'LOCRIAN_V BLOG 博客'
 theme = 'PaperMod'
+
+[menu]
+  [[menu.main]]
+    name = "分类"
+    url = "/categories/"
+    weight = 10
+  [[menu.main]]
+    name = "标签"
+    url = "/tags/"
+    weight = 20
+  [[menu.main]]
+    name = "归档"
+    url = "/archives/"
+    weight = 30
