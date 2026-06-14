@@ -2,19 +2,6 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:1313/en/</loc>
-    <lastmod>2026-06-14T15:30:07+08:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-cn"
-                href="http://localhost:1313/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en-us"
-                href="http://localhost:1313/en/"
-                />
-  </url><url>
     <loc>http://localhost:1313/en/posts/my-avatar/</loc>
     <lastmod>2026-06-14T15:30:07+08:00</lastmod>
   </url><url>
@@ -31,10 +18,24 @@
                 href="http://localhost:1313/en/posts/"
                 />
   </url><url>
+    <loc>http://localhost:1313/en/</loc>
+    <lastmod>2026-06-14T15:30:07+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="http://localhost:1313/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-us"
+                href="http://localhost:1313/en/"
+                />
+  </url><url>
     <loc>http://localhost:1313/en/posts/my-first-english-post/</loc>
     <lastmod>2026-06-14T15:20:38+08:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/en/categories/</loc>
+    <lastmod>2026-06-14T14:20:24+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
@@ -46,7 +47,24 @@
                 href="http://localhost:1313/en/categories/"
                 />
   </url><url>
+    <loc>http://localhost:1313/en/tags/interviewer/</loc>
+    <lastmod>2026-06-14T14:20:24+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/en/posts/resume/</loc>
+    <lastmod>2026-06-14T14:20:24+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-cn"
+                href="http://localhost:1313/posts/resume/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-us"
+                href="http://localhost:1313/en/posts/resume/"
+                />
+  </url><url>
     <loc>http://localhost:1313/en/tags/</loc>
+    <lastmod>2026-06-14T14:20:24+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-cn"
@@ -57,5 +75,8 @@
                 hreflang="en-us"
                 href="http://localhost:1313/en/tags/"
                 />
+  </url><url>
+    <loc>http://localhost:1313/en/categories/work/</loc>
+    <lastmod>2026-06-14T14:20:24+08:00</lastmod>
   </url>
 </urlset>

@@ -1,19 +1,26 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Posts on LOCRIAN_V blog 博客</title>
+    <title>Posts on 洛克里亚的五度 博客</title>
     <link>http://localhost:1313/posts/</link>
-    <description>Recent content in Posts on LOCRIAN_V blog 博客</description>
+    <description>Recent content in Posts on 洛克里亚的五度 博客</description>
     <generator>Hugo</generator>
     <language>zh-cn</language>
     <lastBuildDate>Sun, 14 Jun 2026 14:20:24 +0800</lastBuildDate>
     <atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>My First Post</title>
+      <title>第一篇文章</title>
       <link>http://localhost:1313/posts/%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/</link>
       <pubDate>Sun, 14 Jun 2026 14:20:24 +0800</pubDate>
       <guid>http://localhost:1313/posts/%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/</guid>
       <description>&lt;p&gt;这是我所有博客中的第一篇文章。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>个人简历</title>
+      <link>http://localhost:1313/posts/resume/</link>
+      <pubDate>Sun, 14 Jun 2026 14:20:24 +0800</pubDate>
+      <guid>http://localhost:1313/posts/resume/</guid>
+      <description>&lt;p&gt;简历还在完善中&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>
