@@ -66,4 +66,5 @@ defaultContentLanguage = 'zh'
 
 [params]
 	favicon = "/favicon.ico"
-	defaultTheme = 'auto'
+	[params.assets]
+		favicon = "/favicon.ico"
