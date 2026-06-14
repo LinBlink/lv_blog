@@ -3,6 +3,9 @@ title = 'LOCRIAN_V blog 博客'
 theme = 'PaperMod'
 defaultContentLanguage = 'zh'
 
+[params]
+	favicon = "/favicon.ico"
+
 [languages]
   [languages.zh]
     locale = 'zh-cn'
