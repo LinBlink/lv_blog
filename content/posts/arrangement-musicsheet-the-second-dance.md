@@ -5,8 +5,7 @@ title = 'The Second Dance 改编谱'
 categories = ["钢琴"]
 +++
 
-![MuseScore](https://img.shields.io/badge/MuseScore-2E68B2?style=for-the-badge&logo=musescore&logoColor=white)
-
+[![MuseScore Page](https://img.shields.io/badge/MuseScore-Page-0078d7?style=for-the-badge&logo=musescore&logoColor=white)](https://musescore.com/user/30983934/scores/5892865?from=notification)
 <div class="pdf-container" style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; margin: 20px 0;">
     <iframe 
         src="https://img.wathan.cn/the-second-dance-from-movie-hachi-a-dogs-tale.pdf" 
