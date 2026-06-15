@@ -17,7 +17,7 @@ languages:
   zh:
     LanguageName: "简体中文"
     title: '洛克里亚的五度 博客'
-    locale: 'zh-cn'
+    languageCode: 'zh'
     weight: 1
     params:
       footer:
@@ -50,7 +50,7 @@ languages:
   en:
     LanguageName: "English"
     title: 'LOCRIAN_V Blog'
-    locale: 'en-us'
+    languageCode: 'en'
     weight: 2
     params:
       footer:
@@ -73,7 +73,7 @@ languages:
           url: "/categories/projects/"
           weight: 41
         - name: "Categories"
-          url: "/ategories/"
+          url: "/categories/"
           weight: 50
         - name: "Tags"
           url: "/tags/"
@@ -89,7 +89,7 @@ params:
   ShowCodeCopyButtons: true   # 代码块显示复制按钮
   ShowToc: true               # 显示文章目录
   TocOpen: false              # 目录默认折叠
-  dateFormat: "2006-01-02 05:04:05 AM"
+  dateFormat: "2006-01-02 03:04:05 PM"
   label:
     icon: 'logo.jpg'
     iconHeight: 30
