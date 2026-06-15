@@ -1,0 +1,195 @@
+/* ========================================
+   Header Nav 容器
+======================================== */
+.header-nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;                         /* 修复：垂直居中，避免 stretch 造成子项高度异常 */
+    max-width: calc(var(--nav-width) + var(--gap) * 2);
+    margin: auto;
+    line-height: var(--header-height);
+    padding: 0 var(--gap);
+    column-gap: var(--gap);
+}
+
+/* header-nav 下所有 a 默认 block，但子选择器会覆盖此处 */
+.header-nav a {
+    display: block;
+}
+
+/* ========================================
+   Logo 区域
+======================================== */
+.logo,
+.menu {
+    display: flex;
+    align-items: center;                         /* 补充：统一垂直居中 */
+}
+
+.logo {
+    align-items: center;
+    column-gap: 0.55rem;
+    flex-wrap: nowrap;                           /* 修复：禁止 logo 区域换行 */
+    min-width: 0;                                /* 修复：允许 logo 在 flex 父项中收缩 */
+}
+
+.logo a {
+    font-size: 24px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    column-gap: 0.55rem;
+    min-width: 0;                                /* 修复：允许文字收缩，防止溢出 */
+    text-decoration: none;                       /* 补充：通常 logo 链接不需要下划线 */
+    white-space: nowrap;                         /* 补充：logo 文字不换行 */
+}
+
+.logo a img,
+.logo a svg {
+    pointer-events: none;
+    border-radius: 6px;
+    width: 32px;                                 /* 修复：固定图标尺寸，防止撑开布局 */
+    height: 32px;
+    flex-shrink: 0;                              /* 修复：图标不参与收缩 */
+    display: block;                              /* 补充：消除 img 底部基线间距 */
+}
+
+/* ========================================
+   Logo Switches（语言 + 主题切换组）
+======================================== */
+.logo-switches {
+    display: inline-flex;
+    gap: 0.4rem;
+    align-items: center;                         /* 修复：明确居中，不继承可能为 stretch 的值 */
+    flex-shrink: 0;                              /* 补充：切换组不收缩 */
+    flex-wrap: nowrap;                           /* 修复：明确不换行，不依赖继承 */
+}
+
+.logo-switches > * {
+    display: inline-flex;
+    align-items: center;                         /* 修复：明确居中，不依赖继承 */
+    min-height: 44px;                            /* 修复：满足移动端最小触摸目标 44px */
+}
+
+/* ========================================
+   主题切换按钮
+======================================== */
+.theme-toggle {
+    padding: 0.2rem 0.4rem;                      /* 修复：补充垂直 padding，扩大点击区域 */
+    display: inline-flex;                        /* 补充：内部图标垂直居中 */
+    align-items: center;
+    cursor: pointer;
+    min-height: 44px;                            /* 修复：移动端触摸目标 */
+    min-width: 44px;                             /* 修复：移动端触摸目标 */
+    justify-content: center;
+}
+
+[data-theme="dark"] .moon {
+    display: none;
+}
+
+[data-theme="light"] .sun {
+    display: none;
+}
+
+/* ========================================
+   分隔符
+======================================== */
+.nav-sep {
+    color: var(--secondary);
+    user-select: none;                           /* 补充：分隔符不可选中 */
+}
+
+/* ========================================
+   语言菜单
+======================================== */
+.lang-menu {
+    position: relative;                          /* 补充：为可能的下拉菜单定位锚点 */
+}
+
+.lang-menu * {
+    display: inline-flex;                        /* 修复：统一使用 inline-flex，避免 inherit 链不可控 */
+    align-items: center;                         /* 修复：明确居中 */
+}
+
+.lang-menu a {
+    font-size: 1rem;
+    font-weight: 500;
+    padding: 0.2rem 0.4rem;                      /* 修复：补充垂直 padding */
+    display: inline-flex;                        /* 修复：补全遗漏的分号 */
+    align-items: center;
+    min-height: 44px;                            /* 修复：移动端触摸目标 */
+    text-decoration: none;
+}
+
+/* ========================================
+   导航菜单
+======================================== */
+.menu {
+    list-style: none;
+    margin: 0;                                   /* 补充：重置 ul 默认 margin */
+    padding: 0;                                  /* 补充：重置 ul 默认 padding */
+    word-break: keep-all;
+    overflow-x: auto;
+    white-space: nowrap;
+    column-gap: var(--gap);
+    scrollbar-width: none;                       /* 补充：隐藏滚动条（Firefox） */
+    -ms-overflow-style: none;                    /* 补充：隐藏滚动条（IE/Edge） */
+}
+
+.menu::-webkit-scrollbar {
+    display: none;                               /* 补充：隐藏滚动条（Chrome/Safari） */
+}
+
+.menu a {
+    font-size: 16px;
+    display: inline-flex;                        /* 补充：撑满 li 高度，扩大点击区域 */
+    align-items: center;
+    padding: 0 0.2rem;                           /* 补充：水平间距微调 */
+    min-height: 44px;                            /* 修复：移动端触摸目标 */
+    text-decoration: none;
+}
+
+.menu .active {
+    font-weight: 500;
+    text-decoration: underline;
+    text-underline-offset: 0.3rem;
+    text-decoration-thickness: 2px;
+}
+
+/* ========================================
+   小屏幕优化（≤ 640px）
+======================================== */
+@media (max-width: 640px) {
+    .header-nav {
+        flex-direction: column;                  /* 小屏：logo 和 menu 竖向堆叠 */
+        align-items: flex-start;
+        row-gap: 0;
+        line-height: normal;                     /* 小屏：取消 line-height 撑高，改用 padding 控制 */
+        padding: 0.5rem var(--gap);
+    }
+
+    .logo {
+        width: 100%;
+        justify-content: space-between;          /* logo 文字左、切换按钮右 */
+        padding: 0.25rem 0;
+    }
+
+    .logo a {
+        font-size: 20px;                         /* 小屏：字号略降 */
+        overflow: hidden;
+        text-overflow: ellipsis;                 /* 小屏：文字过长截断 */
+    }
+
+    .menu {
+        width: 100%;
+        column-gap: calc(var(--gap) * 0.6);     /* 小屏：间距收紧 */
+        padding-bottom: 0.25rem;
+    }
+
+    .menu a {
+        font-size: 14px;                         /* 小屏：菜单字号略降 */
+        min-height: 44px;
+    }
+}
