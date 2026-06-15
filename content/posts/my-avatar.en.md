@@ -7,6 +7,6 @@ categories = ["essay"]
 
 here are two avatars I used :)
 
-{{< figure src="https://img.wathan.cn/20260614172159279.webp" width="300px" alt="avatar" title="avatar1" >}}
+{{< figure src="https://img.wathan.cn/20260614172159279.webp" width="300px" alt="avatar" title="avatar1" align="center" >}}
 
-{{< figure src="https://img.wathan.cn/20260614172209585.webp" width="300px" alt="avatar" title="avatar2" >}}
+{{< figure src="https://img.wathan.cn/20260614172209585.webp" width="300px" alt="avatar" title="avatar2" align="center"  >}}
