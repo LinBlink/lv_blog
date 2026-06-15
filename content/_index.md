@@ -22,9 +22,7 @@ layout: "home" # 让它作为首页渲染
 
 <div class="mq-container">
   <div class="mq-track">
-
 <!-- ========== 需要改变 ========== -->
-
 <img alt="Java 后端开发" loading="lazy" src="https://img.shields.io/badge/Java-后端开发-orange?style=for-the-badge&logo=openjdk">
 <img alt="AWS SAA 认证" loading="lazy" src="https://img.shields.io/badge/AWS-SAA_认证-FF9900?style=for-the-badge&logo=amazonaws">
 <img alt="JVM" loading="lazy" src="https://img.shields.io/badge/JVM-深度理解-brightgreen?style=for-the-badge&logo=openjdk">
@@ -37,11 +35,9 @@ layout: "home" # 让它作为首页渲染
 <img alt="Elasticsearch" loading="lazy" src="https://img.shields.io/badge/Elasticsearch-掌握-005571?style=for-the-badge&logo=elasticsearch">
 <img alt="RabbitMQ" loading="lazy" src="https://img.shields.io/badge/RabbitMQ-熟练运用-FF6600?style=for-the-badge&logo=rabbitmq">
 <img alt="Nacos" loading="lazy" src="https://img.shields.io/badge/Nacos-掌握-blue?style=for-the-badge&logo=alibabacloud">
-
 <img alt="目的地澳大利亚" loading="lazy" src="https://img.shields.io/badge/目的地-澳大利亚_🦘-00843D?style=for-the-badge">
 <img alt="PTE 备考" loading="lazy" src="https://img.shields.io/badge/PTE-备考中-blue?style=for-the-badge&logo=duolingo">
 <img alt="签证积分" loading="lazy" src="https://img.shields.io/badge/签证积分-计算中-yellow?style=for-the-badge&logo=gov.uk">
-
 <!-- ========== 前端  ========== -->
 <img alt="JavaScript 精通" loading="lazy" src="https://img.shields.io/badge/JavaScript-精通-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black">
 <img alt="Vue.js 掌握" loading="lazy" src="https://img.shields.io/badge/Vue.js-掌握-4FC08D?style=for-the-badge&logo=vuedotjs&logoColor=white">
@@ -57,13 +53,10 @@ layout: "home" # 让它作为首页渲染
 <img alt="Webpack 了解" loading="lazy" src="https://img.shields.io/badge/Webpack-掌握-8DD6F9?style=for-the-badge&logo=webpack&logoColor=black">
 <img alt="ESLint 了解" loading="lazy" src="https://img.shields.io/badge/ESLint-了解-4B32C3?style=for-the-badge&logo=eslint&logoColor=white">
 <img alt="npm 了解" loading="lazy" src="https://img.shields.io/badge/npm-掌握-CB3837?style=for-the-badge&logo=npm&logoColor=white">
-
 <!-- ==================== 专业证书 ==================== -->
 <img alt="软考系统架构师" loading="lazy" src="https://img.shields.io/badge/软考-系统架构师-8B0000?style=for-the-badge&logo=checkmarx&logoColor=white">
-
 <!-- ==================== 语言能力 ==================== -->
 <img alt="英语六级 520" loading="lazy" src="https://img.shields.io/badge/英语-CET6_520分-1E90FF?style=for-the-badge&logo=duolingo&logoColor=white">
-
 <!-- ==================== 艺术特长 ==================== -->
 <img alt="钢琴八级" loading="lazy" src="https://img.shields.io/badge/钢琴-中音八级-8A2BE2?style=for-the-badge&logo=musicbrainz&logoColor=white">
 
