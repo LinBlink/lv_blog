@@ -15,7 +15,7 @@ markup:
 languages:
   # ---------------- 中文版配置 ----------------
   zh:
-    label: "简体中文"
+    LanguageName: "简体中文"
     title: '洛克里亚的五度 博客'
     locale: 'zh-cn'
     weight: 1
@@ -48,7 +48,7 @@ languages:
 
   # ---------------- 英文版配置 ----------------
   en:
-    label: "English"
+    LanguageName: "English"
     title: 'LOCRIAN_V Blog'
     locale: 'en-us'
     weight: 2
@@ -94,6 +94,7 @@ params:
     icon: 'logo.jpg'
     iconHeight: 30
   enableGitInfo: true
+  displayFullLangName: true
 
 # 输出格式（启用 RSS）
 outputs:
