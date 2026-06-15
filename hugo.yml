@@ -1,6 +1,6 @@
 baseURL: 'https://lv-blog.pages.dev/'
 title: 'LOCRIAN_V blog 博客'
-theme: 'PaperMod'
+theme: 'blowfish'
 defaultContentLanguage: 'zh'
 defaultContentLanguageInSubdir: false  # 中文为根路径，不加 /zh/ 前缀
 
