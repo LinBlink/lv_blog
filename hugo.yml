@@ -3,7 +3,7 @@ title: 'LOCRIAN_V blog 博客'
 theme: 'PaperMod'
 defaultContentLanguage: 'zh'
 defaultContentLanguageInSubdir: false  # 中文为根路径，不加 /zh/ 前缀
-
+buildDrafts: true
 
 markup:
   goldmark:
@@ -15,9 +15,9 @@ markup:
 languages:
   # ---------------- 中文版配置 ----------------
   zh:
-    LanguageName: "简体中文"
+    label : "简体中文"
     title: '洛克里亚的五度 博客'
-    languageCode: 'zh'
+    locale: 'zh'
     weight: 1
     params:
       footer:
@@ -48,9 +48,9 @@ languages:
 
   # ---------------- 英文版配置 ----------------
   en:
-    LanguageName: "English"
+    label : "English"
     title: 'LOCRIAN_V Blog'
-    languageCode: 'en'
+    locale: 'en'
     weight: 2
     params:
       footer:

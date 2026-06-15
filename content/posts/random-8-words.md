@@ -2,6 +2,7 @@
 date = '2026-06-15T09:10:57+08:00'
 draft = false
 title = '无奈八则'
+categories = ["随笔"]
 +++
 
  长相失败，

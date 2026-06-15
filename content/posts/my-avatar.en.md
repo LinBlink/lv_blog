@@ -2,7 +2,7 @@
 date = '2026-06-14T15:30:07+08:00'
 draft = false
 title = 'My Avatar'
-
+categories = ["essay"]
 +++
 
 here are two avatars I used :)
