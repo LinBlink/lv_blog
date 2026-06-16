@@ -23,8 +23,13 @@ layout: "home" # 让它作为首页渲染
 <div class="mq-container">
   <div class="mq-track">
 <!-- ========== 需要改变 ========== -->
-<img alt="Java 后端开发" loading="lazy" src="https://img.shields.io/badge/Java-后端开发-orange?style=for-the-badge&logo=openjdk">
-<img alt="AWS SAA 认证" loading="lazy" src="https://img.shields.io/badge/AWS-SAA_认证-FF9900?style=for-the-badge&logo=amazonaws">
+<!-- 
+<img alt="目的地澳大利亚" loading="lazy" src="https://img.shields.io/badge/目的地-澳大利亚_🦘-00843D?style=for-the-badge">
+<img alt="PTE 备考" loading="lazy" src="https://img.shields.io/badge/PTE-备考中-blue?style=for-the-badge&logo=duolingo">
+<img alt="签证积分" loading="lazy" src="https://img.shields.io/badge/签证积分-计算中-yellow?style=for-the-badge&logo=gov.uk">
+<img alt="AWS SAA 认证" loading="lazy" src="https://img.shields.io/badge/AWS-SAA_认证-FF9900?style=for-the-badge&logo=amazonaws"> -->
+
+<!-- ========== 后端 ========== -->
 <img alt="JVM" loading="lazy" src="https://img.shields.io/badge/JVM-深度理解-brightgreen?style=for-the-badge&logo=openjdk">
 <img alt="Spring Boot" loading="lazy" src="https://img.shields.io/badge/Spring_Boot-熟练运用-6DB33F?style=for-the-badge&logo=springboot">
 <img alt="Spring 框架" loading="lazy" src="https://img.shields.io/badge/Spring_IoC/AOP-熟练运用-6DB33F?style=for-the-badge&logo=spring">
@@ -35,24 +40,15 @@ layout: "home" # 让它作为首页渲染
 <img alt="Elasticsearch" loading="lazy" src="https://img.shields.io/badge/Elasticsearch-掌握-005571?style=for-the-badge&logo=elasticsearch">
 <img alt="RabbitMQ" loading="lazy" src="https://img.shields.io/badge/RabbitMQ-熟练运用-FF6600?style=for-the-badge&logo=rabbitmq">
 <img alt="Nacos" loading="lazy" src="https://img.shields.io/badge/Nacos-掌握-blue?style=for-the-badge&logo=alibabacloud">
-<img alt="目的地澳大利亚" loading="lazy" src="https://img.shields.io/badge/目的地-澳大利亚_🦘-00843D?style=for-the-badge">
-<img alt="PTE 备考" loading="lazy" src="https://img.shields.io/badge/PTE-备考中-blue?style=for-the-badge&logo=duolingo">
-<img alt="签证积分" loading="lazy" src="https://img.shields.io/badge/签证积分-计算中-yellow?style=for-the-badge&logo=gov.uk">
+<img alt="Java 后端开发" loading="lazy" src="https://img.shields.io/badge/Java-后端开发-orange?style=for-the-badge&logo=openjdk">
 <!-- ========== 前端  ========== -->
 <img alt="JavaScript 精通" loading="lazy" src="https://img.shields.io/badge/JavaScript-精通-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black">
 <img alt="Vue.js 掌握" loading="lazy" src="https://img.shields.io/badge/Vue.js-掌握-4FC08D?style=for-the-badge&logo=vuedotjs&logoColor=white">
 <img alt="React 掌握" loading="lazy" src="https://img.shields.io/badge/React-掌握-61DAFB?style=for-the-badge&logo=react&logoColor=black">
-<img alt="HTML5 掌握" loading="lazy" src="https://img.shields.io/badge/HTML5-掌握-E34F26?style=for-the-badge&logo=html5&logoColor=white">
-<img alt="CSS3 掌握" loading="lazy" src="https://img.shields.io/badge/CSS3-掌握-1572B6?style=for-the-badge&logo=css3&logoColor=white">
 <img alt="Vite 掌握" loading="lazy" src="https://img.shields.io/badge/Vite-掌握-646CFF?style=for-the-badge&logo=vite&logoColor=white">
 <img alt="Axios 掌握" loading="lazy" src="https://img.shields.io/badge/Axios-掌握-5A29E4?style=for-the-badge&logo=axios&logoColor=white">
 <img alt="TypeScript 了解" loading="lazy" src="https://img.shields.io/badge/TypeScript-了解-3178C6?style=for-the-badge&logo=typescript&logoColor=white">
-<img alt="Next.js 了解" loading="lazy" src="https://img.shields.io/badge/Next.js-了解-000000?style=for-the-badge&logo=nextdotjs&logoColor=white">
-<img alt="Nuxt.js 了解" loading="lazy" src="https://img.shields.io/badge/Nuxt.js-掌握-00DC82?style=for-the-badge&logo=nuxtdotjs&logoColor=white">
-<img alt="Tailwind CSS 了解" loading="lazy" src="https://img.shields.io/badge/Tailwind_CSS-了解-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white">
 <img alt="Webpack 了解" loading="lazy" src="https://img.shields.io/badge/Webpack-掌握-8DD6F9?style=for-the-badge&logo=webpack&logoColor=black">
-<img alt="ESLint 了解" loading="lazy" src="https://img.shields.io/badge/ESLint-了解-4B32C3?style=for-the-badge&logo=eslint&logoColor=white">
-<img alt="npm 了解" loading="lazy" src="https://img.shields.io/badge/npm-掌握-CB3837?style=for-the-badge&logo=npm&logoColor=white">
 <!-- ==================== 专业证书 ==================== -->
 <img alt="软考系统架构师" loading="lazy" src="https://img.shields.io/badge/软考-系统架构师-8B0000?style=for-the-badge&logo=checkmarx&logoColor=white">
 <!-- ==================== 语言能力 ==================== -->
