@@ -6,6 +6,12 @@ categories = ["生活"]
 tags = [""]
 +++
 
+<style>
+img {
+  width:60%
+}
+</style>
+
 ![image-20260616185540839](https://img.wathan.cn/20260616185541263.webp)
 
 ![image-20260616185600384](https://img.wathan.cn/20260616185600630.webp)
