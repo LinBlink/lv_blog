@@ -1,4 +1,4 @@
-fetch("weight.json")
+fetch("/posts/life/everyday-weight/weight.json")
   .then(r => r.json())
   .then(({ records, goal, unit }) => {
     const container = document.getElementById("weightTable");
@@ -22,9 +22,9 @@ fetch("weight.json")
       <table style="width:fit-content">
         <thead>
           <tr>
-            <th>日期</th>
-            <th>体重</th>
-            <th>距目标</th>
+            <th>Date 日期</th>
+            <th>Weight 体重</th>
+            <th>To Goal 距目标</th>
           </tr>
         </thead>
         <tbody>${rows}</tbody>

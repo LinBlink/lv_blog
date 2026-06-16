@@ -25,7 +25,7 @@ Come on in and see if anything catches your eye, my dear friend😉.
 
 
 
-<div class="mq-container">
+<div class="mq-container" onclick="window.open('/en/posts/resume','_blank')" style="cursor:pointer;">
   <div class="mq-track">
   
 <!-- 
