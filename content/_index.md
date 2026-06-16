@@ -6,7 +6,7 @@ layout: "home" # 让它作为首页渲染
 快来看看有没有你感兴趣的东西，我亲爱的朋友😉。
 
 <div style="text-align:right">
-📑<a href="/posts/resume">我的简历</a>
+📑<a href="/posts/work/resume">我的简历</a>
 🧔<a href="/tags/面试官">面试官专用入口</a>
 </div>
 
@@ -20,7 +20,7 @@ layout: "home" # 让它作为首页渲染
 
 
 
-<div class="mq-container" onclick="window.open('/posts/resume','_blank')" style="cursor:pointer;">
+<div class="mq-container" onclick="window.open('/posts/work/resume','_blank')" style="cursor:pointer;">
   <div class="mq-track">
 <!-- ========== 需要改变 ========== -->
 <!-- 

@@ -9,7 +9,7 @@ layout: "home" # Rendition as homepage
 Come on in and see if anything catches your eye, my dear friend😉.
 
 <div style="text-align:right">
-📑<a href="/en/posts/resume">My Resume</a>
+📑<a href="/en/posts/work/resume">My Resume</a>
 🧔<a href="/en/tags/interviewer">Interviewer's Portal</a>
 </div>
 
@@ -25,7 +25,7 @@ Come on in and see if anything catches your eye, my dear friend😉.
 
 
 
-<div class="mq-container" onclick="window.open('/en/posts/resume','_blank')" style="cursor:pointer;">
+<div class="mq-container" onclick="window.open('/en/posts/work/resume','_blank')" style="cursor:pointer;">
   <div class="mq-track">
   
 <!-- 
