@@ -20,7 +20,7 @@ layout: "home" # 让它作为首页渲染
 
 
 
-<div class="mq-container" onclick="window.open('/posts/work/resume','_blank')" style="cursor:pointer;">
+<div class="mq-container" onclick="window.open('/posts/work/resume','_self')" style="cursor:pointer;">
   <div class="mq-track">
 <!-- ========== 需要改变 ========== -->
 <!-- 
