@@ -4,6 +4,10 @@ draft = true
 title = '我喜欢的好吃的'
 categories = ["生活"]
 tags = [""]
+[cover]
+  image = "https://img.wathan.cn/20260616185541263.webp"   # 换成你的图片路径
+  alt = "我喜欢的好吃的"
+  relative = true
 +++
 
 <style>

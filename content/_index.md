@@ -19,7 +19,7 @@ layout: "home" # 让它作为首页渲染
 </div>
 
 
-<!-- ===================== 粘贴进MD的内容从这里开始 ===================== -->
+<!-- ===================== WHAT I AM CAPABLE ===================== -->
 
 
 
@@ -55,9 +55,27 @@ layout: "home" # 让它作为首页渲染
 <!-- ==================== 专业证书 ==================== -->
 <img alt="软考系统架构师" loading="lazy" src="https://img.shields.io/badge/软考-系统架构师-8B0000?style=for-the-badge&logo=checkmarx&logoColor=white">
 <!-- ==================== 语言能力 ==================== -->
-<img alt="英语六级 520" loading="lazy" src="https://img.shields.io/badge/英语-CET6_520分-1E90FF?style=for-the-badge&logo=duolingo&logoColor=white">
+<img alt="英语六级 520" loading="lazy" src="https://img.shields.io/badge/英语-CET6-1E90FF?style=for-the-badge&logo=duolingo&logoColor=white">
 <!-- ==================== 艺术特长 ==================== -->
+
+<!-- TESLA -->
+<img alt="Tesla Model 3" loading="lazy" src="https://img.shields.io/badge/Tesla-Model_3-CC0000?style=for-the-badge&logo=tesla&logoColor=white">
+
+<!-- 兴趣爱好 -->
+
+<img alt="复古游戏" loading="lazy" src="https://img.shields.io/badge/Retro_Gaming-永不过时-FF6B35?style=for-the-badge&logo=steam&logoColor=white">
+
 <img alt="钢琴八级" loading="lazy" src="https://img.shields.io/badge/钢琴-中音八级-8A2BE2?style=for-the-badge&logo=musicbrainz&logoColor=white">
+
+<img alt="Linux" loading="lazy" src="https://img.shields.io/badge/Linux-日常主力-FCC624?style=for-the-badge&logo=linux&logoColor=black">
+
+<img alt="Stack Overflow" loading="lazy" src="https://img.shields.io/badge/Stack_Overflow-日常打酱油-F58025?style=for-the-badge&logo=stackoverflow&logoColor=white">
+
+<img alt="Open Source" loading="lazy" src="https://img.shields.io/badge/Open_Source-感谢所有开源作者-3DA639?style=for-the-badge&logo=opensourceinitiative&logoColor=white">
+
+<img alt="Self Hosted" loading="lazy" src="https://img.shields.io/badge/Self_Hosted-热爱自部署-0A0A0A?style=for-the-badge&logo=serverless&logoColor=white">
+
+
 
   </div>
 </div>
