@@ -66,9 +66,11 @@ details.toc {
     position: sticky;
     top: 20px; /* 固定在屏幕顶部 */
   /* 关键：限制最大高度为屏幕高度 */
-  max-height: 29.02vh; 
-  /* 关键：超出高度时允许内容在内部滚动 */
-  overflow-y: auto;
+    max-height: 29.02vh; 
+    /* 关键：超出高度时允许内容在内部滚动 */
+    overflow-y: auto;
+    position: -webkit-sticky; /* Safari */
+    z-index: 100;
 }
 
 [data-theme="dark"] details.toc {
