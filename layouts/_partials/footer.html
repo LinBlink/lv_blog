@@ -1,3 +1,23 @@
+<style>
+.pendulum-text {
+      font-size: 20px;
+      font-weight: bold;
+      /* 设置旋转中心点在顶部，模拟悬挂摆锤 */
+      transform-origin: center top;
+      /* 1秒完成一次左右往返，无限交替，缓动模拟钟摆 */
+      animation: pendulum 0.2s infinite alternate ease-in-out;
+    }
+    /* 摆锤关键帧：左摆 → 右摆 */
+    @keyframes pendulum {
+      0% {
+        transform: rotate(-12deg);
+      }
+      100% {
+        transform: rotate(12deg);
+      }
+    }
+  </style>
+
 {{- if not (.Param "hideFooter") }}
 <footer class="footer">
 <!-- 父容器必须占满宽度，无浮动 -->
@@ -20,18 +40,8 @@
 	{{ end }}
 
 <div style="display:flex; justify-content:center; width:100%; padding:10px 0;">
-    <img 
-        style="width: 70px;
-               border-radius: 12px;
-               border: 2px solid #cccccc;
-               transition: all 0.3s ease;
-               cursor: pointer;"
-        onmouseover="this.style.transform='scale(1.15)'"
-        onmouseout="this.style.transform='scale(1)'"
-        onclick="window.scrollTo({top:0,behavior:'smooth'})"
-        src="https://img.wathan.cn/20260617160327285.webp"
-        alt="文艺青年logo"
-    >
+<a class="pendulum-text" style="
+      text-decoration: none;" href="mailto:827650791@qq.com">📧</a>
 </div>
 </footer>
 {{- end }}
