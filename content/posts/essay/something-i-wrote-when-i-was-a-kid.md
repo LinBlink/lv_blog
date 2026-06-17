@@ -2,7 +2,7 @@
 date = '2026-06-16T18:37:42+08:00'
 draft = false
 title = '小学的时候在电脑上写的'
-categories = ["未分类"]
+categories = ["随笔"]
 tags = [""]
 +++
 
