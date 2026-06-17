@@ -1,5 +1,7 @@
 {{- if not (.Param "hideFooter") }}
 <footer class="footer">
+<!-- 父容器必须占满宽度，无浮动 -->
+
     {{- if not site.Params.footer.hideCopyright }}
         {{- if site.Copyright }}
         <span>{{ site.Copyright | markdownify }}</span>
@@ -16,6 +18,21 @@
 	{{ with first 1 site.RegularPages.ByLastmod.Reverse }}
 		{{ (index . 0).Lastmod.Format "01-02" }} 🎶
 	{{ end }}
+
+<div style="display:flex; justify-content:center; width:100%; padding:10px 0;">
+    <img 
+        style="width: 70px;
+               border-radius: 12px;
+               border: 2px solid #cccccc;
+               transition: all 0.3s ease;
+               cursor: pointer;"
+        onmouseover="this.style.transform='scale(1.15)'"
+        onmouseout="this.style.transform='scale(1)'"
+        onclick="window.scrollTo({top:0,behavior:'smooth'})"
+        src="https://img.wathan.cn/20260617160327285.webp"
+        alt="文艺青年logo"
+    >
+</div>
 </footer>
 {{- end }}
 
