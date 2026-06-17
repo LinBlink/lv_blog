@@ -5,8 +5,6 @@ title = 'Sudden Sensorineural Hearing Loss Treatment Process'
 categories = ["life"]
 +++
 
-**This Article is Translated by AI**
-
 #### September 22, Monday — Day 1: Sudden onset
 
 Woke up in the morning with a blocked feeling in the right ear; the left ear was normal. I assumed it was just ear congestion or possibly otitis media, something that would resolve on its own, so I didn’t pay much attention.

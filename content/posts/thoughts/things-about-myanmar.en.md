@@ -5,8 +5,6 @@ title = "Myanmar: The Golden Pagoda Still Stands, the Buddhist Heart Remains Unw
 categories = ["thoughts"]
 +++
 
-**This Article is Translated by AI**
-
 I hope my friends who know little about Myanmar can take a moment to read this.
 
 From colonization by the Western world to the atrocities of Japanese massacres. From endless civil wars to devastating natural disasters — Myanmar has borne nearly every misfortune a nation can suffer, so much so that it bears a certain resemblance to old China. On top of that, some Chinese people have taken advantage of Myanmar's political turmoil and the central government's limited border control to engage in telecom fraud in northern Myanmar. This is not the doing of the Myanmar people, yet the country has been unfairly labeled as dangerous. Ignorant netizens back home have jumped on the bandwagon, painting Myanmar as a hell on earth and plastering it with every dark label imaginable.
