@@ -32,6 +32,7 @@
     column-gap: 0.55rem;
     flex-wrap: nowrap;                           /* 修复：禁止 logo 区域换行 */
     min-width: 0;                                /* 修复：允许 logo 在 flex 父项中收缩 */
+    flex: 0 0 auto;
 }
 
 .logo a {
@@ -133,9 +134,10 @@
     word-break: keep-all;
     overflow-x: auto;
     white-space: nowrap;
-    column-gap: var(--gap);
+    column-gap: 14px;
     scrollbar-width: none;                       /* 补充：隐藏滚动条（Firefox） */
     -ms-overflow-style: none;                    /* 补充：隐藏滚动条（IE/Edge） */
+    margin-left: auto;
 }
 
 .menu::-webkit-scrollbar {

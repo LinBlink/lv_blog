@@ -22,7 +22,7 @@ languages:
     params:
       footer:
         text: '保留所有权利'
-      updatingText: 更新中
+      updatingText: 갱신 중
     menu:
       main:
         - name: "🤔思考"
@@ -34,9 +34,6 @@ languages:
         - name: "🎹钢琴"
           url: "/categories/钢琴/"
           weight: 30
-        - name: "🌙故事"
-          url: "/categories/故事/"
-          weight: 40
         - name: "🔨项目"
           url: "/categories/项目/"
           weight: 41
@@ -46,6 +43,9 @@ languages:
         - name: "所有标签"
           url: "/tags/"
           weight: 60
+        - name: "🔍搜索"
+          url: "/search"
+          weight: 70
 
   # ---------------- 英文版配置 ----------------
   en:
@@ -68,9 +68,6 @@ languages:
         - name: "🎹Piano"
           url: "/categories/piano/"
           weight: 30
-        - name: "🌙Stories"
-          url: "/categories/stories/"
-          weight: 40
         - name: "🔨Projects"
           url: "/categories/projects/"
           weight: 41
@@ -80,6 +77,9 @@ languages:
         - name: "Tags"
           url: "/tags/"
           weight: 60
+        - name: "🔍Search"
+          url: "/search"
+          weight: 70
 
 # PaperMod 主题全局参数
 params:
@@ -97,6 +97,16 @@ params:
     iconHeight: 30
   enableGitInfo: true
   displayFullLangName: true
+
+  fuseOpts:
+    isCaseSensitive: false
+    shouldSort: true
+    location: 0
+    distance: 1000
+    threshold: 0.4
+    minMatchCharLength: 0
+    # limit: 10 # refer: https://www.fusejs.io/api/methods.html#search
+    keys: ["content"]
 
 # 输出格式（启用 RSS）
 outputs:
