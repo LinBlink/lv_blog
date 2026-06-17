@@ -64,7 +64,11 @@ details.toc {
     border-radius: var(--radius);
     border: 1px solid var(--border);
     position: sticky;
-    top: 20px;
+    top: 20px; /* 固定在屏幕顶部 */
+  /* 关键：限制最大高度为屏幕高度 */
+  max-height: 29.02vh; 
+  /* 关键：超出高度时允许内容在内部滚动 */
+  overflow-y: auto;
 }
 
 [data-theme="dark"] details.toc {
@@ -74,6 +78,9 @@ details.toc {
 details.toc summary {
     padding: 0.3rem 1.2rem;
     border-radius: var(--radius);
+    position: sticky;
+    top: 0px;
+    background: var(--code-bg);
 }
 
 details summary {
