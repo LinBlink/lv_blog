@@ -37,6 +37,9 @@ languages:
         - name: "🔨项目"
           url: "/categories/项目/"
           weight: 41
+        - name: "🖊小说"
+          url: "/categories/小说/"
+          weight: 42
         - name: "所有分类"
           url: "/categories/"
           weight: 50

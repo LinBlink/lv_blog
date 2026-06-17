@@ -1,6 +1,6 @@
 +++
 date = '2026-06-16T18:27:05+08:00'
-draft = true
+draft = false
 title = 'Together or Not'
 categories = ["随笔"]
 tags = [""]
