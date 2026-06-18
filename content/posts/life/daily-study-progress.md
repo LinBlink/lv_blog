@@ -12,13 +12,13 @@ tags = ["每日记录"]
 | ---- | ---- | ------ | -------- |
 | 5.27 | DONE | DONE   | -        |
 | 5.28 | DONE | DONE   | -        |
-| 5.29 | DONE   | DONE   | DONE     |
+| 5.29 | DONE | DONE   | DONE     |
 | 5.30 | DONE | DONE   | DONE     |
 | 5.31 | DONE | DONE   | DONE     |
 | 6.1  | DONE | DONE   | DONE     |
 | 6.2  | DONE | -      | DONE     |
 | 6.3  | -    | DONE   | -        |
-| 6.4  | -   | DONE   | DONE     |
+| 6.4  | -    | DONE   | DONE     |
 | 6.5  | DONE | -      | -        |
 | 6.6  | DONE | DONE   | DONE     |
 | 6.7  | DONE | -      | -        |
@@ -31,6 +31,8 @@ tags = ["每日记录"]
 | 6.14 | 3h   | DONE   | DONE     |
 | 6.15 |      | 200    |          |
 | 6.16 |      | DONE   | DONE     |
+| 6.17 | 4h   |        |          |
+
 {{< /center >}}
 
 ## 26.6.16
