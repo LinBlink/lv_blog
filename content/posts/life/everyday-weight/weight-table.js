@@ -72,7 +72,7 @@ fetch("/posts/life/everyday-weight/weight.json")
 
             <!-- 🎯 比较前一天体重 -->
             <!-- 正数显示 + 号，负数直接显示 -->
-            <td>${diff > 0 ? "+" : "-"}${diff} ${unit}</td>
+            <td>${diff > 0 ? "+" : ""}${diff} ${unit}</td>
 
           </tr>
         `;

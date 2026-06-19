@@ -1,7 +1,7 @@
 +++
 date = '2026-06-18T12:40:44+08:00'
 draft = true
-title = 'SSM框架'
+title = 'SSM框架 学习'
 categories = ["编程"]
 tags = ["学习笔记"]
 +++
