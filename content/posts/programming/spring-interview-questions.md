@@ -208,15 +208,6 @@ flowchart TD
     end
 
     D3 --> END([💀 Bean 销毁完成])
-
-    style START fill:#43A047,color:#fff
-    style READY fill:#43A047,color:#fff
-    style END fill:#e53935,color:#fff
-    style AWARE fill:#e3f2fd,stroke:#2196F3
-    style INIT fill:#fff8e1,stroke:#FF9800
-    style INITMETHOD fill:#fffde7,stroke:#FFC107
-    style CACHE fill:#e8f5e9,stroke:#4CAF50
-    style DESTROY fill:#ffebee,stroke:#f44336
 ```
 
 ## spring 三级缓存依赖流程

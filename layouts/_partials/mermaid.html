@@ -1,25 +1,46 @@
 {{- if .Store.Get "hasMermaid" }}
-<script src="https://cdn.jsdelivr.net/npm/svg-pan-zoom@3.6.1/dist/svg-pan-zoom.min.js"></script>
-
 <style>
-  .mermaid-wrapper {
-    width: 100%;
-    overflow: hidden;
-    background: transparent;
-    border: 1px solid rgba(128, 128, 128, 0.1);
+  .mermaid-container {
+    position: relative;
+    margin: 1.5rem 0;
+    padding: 15px;
+    /* 给图表四周留出一点内边距 */
+    border: 1px solid var(--border);
+    /* 使用 Hugo 主题的默认边框颜色 */
+    border-radius: 8px;
+    /* 圆角 */
+    background-color: var(--entry);
+    /* 使用 Hugo 的条目背景色，让图表有凝聚感 */
+    box-shadow: var(--shadow);
+    /* 可选：加入主题自带的微弱阴影 */
+  }
+
+  .mermaid-view-btn {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    z-index: 10;
+    padding: 4px 8px;
+    font-size: 12px;
+    background-color: var(--theme);
+    color: var(--content);
+    border: 1px solid var(--border);
     border-radius: 4px;
-    margin-bottom: 1em;
+    cursor: pointer;
+    opacity: 0.6;
+    transition: opacity 0.2s;
   }
 
+  .mermaid-container:hover .mermaid-view-btn {
+    opacity: 1;
+  }
+
+  /* 让渲染出来的 SVG 居中并且水平不溢出 */
   .mermaid svg {
-    width: 100% !important;
-    max-width: 100% !important;
     display: block;
-    cursor: grab;
-  }
-
-  .mermaid svg:active {
-    cursor: grabbing;
+    margin: 0 auto;
+    max-width: 100%;
+    height: auto;
   }
 </style>
 
@@ -30,81 +51,75 @@
     return document.documentElement.dataset.theme === 'dark' ? 'dark' : 'default';
   }
 
+  // 新标签页打开图片的核心函数
+  function openSvgInNewTab(mermaidEl) {
+    // 1. 找到渲染后的 SVG 元素
+    const svgEl = mermaidEl.querySelector('svg');
+    if (!svgEl) return;
+
+    // 2. 将 SVG 转换为字符串并转为 Base64
+    const svgString = new XMLSerializer().serializeToString(svgEl);
+    const svgBase64 = window.btoa(unescape(encodeURIComponent(svgString)));
+    const svgUrl = 'data:image/svg+xml;base64,' + svgBase64;
+
+    // 3. 打开新标签页并渲染，方便用户缩放
+    const newTab = window.open();
+    if (newTab) {
+      newTab.document.writeHead;
+      newTab.document.title = "View Mermaid Diagram";
+      newTab.document.body.style.margin = "0";
+      newTab.document.body.style.backgroundColor = getMermaidTheme() === 'dark' ? '#1d1e20' : '#fff';
+
+      const img = newTab.document.createElement('img');
+      img.src = svgUrl;
+      img.style.maxWidth = "100%";
+      img.style.height = "auto";
+      img.style.display = "block";
+      img.style.margin = "auto";
+      img.style.padding = "20px";
+
+      newTab.document.body.appendChild(img);
+    }
+  }
+
   const diagrams = document.querySelectorAll('.mermaid');
   const originals = Array.from(diagrams).map(el => el.textContent);
 
-  let zoomInstances = [];
+  // 初始化：动态包裹容器并添加按钮
+  diagrams.forEach((el) => {
+    const container = document.createElement('div');
+    container.className = 'mermaid-container';
+    el.parentNode.insertBefore(container, el);
+    container.appendChild(el);
 
-  function initPanZoom() {
-    zoomInstances.forEach(instance => {
-      try { instance.destroy(); } catch (e) { }
-    });
-    zoomInstances = [];
-
-    diagrams.forEach(el => {
-      const svg = el.querySelector('svg');
-      if (svg) {
-        // 1. 清理干扰样式
-        svg.removeAttribute('style');
-        svg.style.width = '100%';
-
-        // 2. 🔥 【核心修改】通过 getBBox() 获取 SVG 内部图形真正占据的物理高度
-        // 并额外增加 40px 的缓冲 margin（防止底部字线被贴边切掉）
-        let realHeight = svg.getBBox().height + 40;
-
-        // 3. 将真实精确的高度应用给 SVG
-        svg.style.height = realHeight + 'px';
-
-        // 4. 启动缩放
-        const instance = svgPanZoom(svg, {
-          zoomEnabled: true,
-          controlIconsEnabled: true,
-          fit: true,
-          center: true,
-          minZoom: 0.1,
-          maxZoom: 10,
-        });
-        zoomInstances.push(instance);
-      }
-    });
-  }
-
-  // 第一次运行
-  mermaid.initialize({ startOnLoad: false, theme: getMermaidTheme() });
-
-  diagrams.forEach(el => {
-    if (!el.parentElement.classList.contains('mermaid-wrapper')) {
-      const wrapper = document.createElement('div');
-      wrapper.className = 'mermaid-wrapper';
-      el.parentNode.insertBefore(wrapper, el);
-      wrapper.appendChild(el);
-    }
+    // 创建按钮
+    const btn = document.createElement('button');
+    btn.className = 'mermaid-view-btn';
+    btn.innerText = '🔍 放大查看';
+    btn.addEventListener('click', () => openSvgInNewTab(el));
+    container.appendChild(btn);
   });
 
+  mermaid.initialize({ startOnLoad: false, theme: getMermaidTheme() });
   await mermaid.run();
-  initPanZoom();
 
-  // 监听 <html> 元素的 data-theme 属性变化
-  const observer = new MutationObserver(async () => {
+  // ✅ 监听 <html> 元素的 data-theme 属性变化
+  const observer = new MutationObserver(() => {
     const newTheme = getMermaidTheme();
-
     diagrams.forEach((el, i) => {
       el.removeAttribute('data-processed');
       el.innerHTML = originals[i];
     });
-
     mermaid.initialize({
       startOnLoad: false,
-      theme: newTheme
+      theme: newTheme,
     });
-
-    await mermaid.run();
-    initPanZoom();
+    mermaid.run();
   });
 
-  observer.observe(document.documentElement, {
+  observer.observe(document.documentElement, {   // ✅ 目标是 <html>，不是 <body>
     attributes: true,
-    attributeFilter: ['data-theme']
+    attributeFilter: ['data-theme']              // ✅ 过滤 data-theme，不是 class
   });
 </script>
 {{- end }}
