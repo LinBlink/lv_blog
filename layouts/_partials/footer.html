@@ -5,7 +5,8 @@
       /* 设置旋转中心点在顶部，模拟悬挂摆锤 */
       transform-origin: center top;
       /* 1秒完成一次左右往返，无限交替，缓动模拟钟摆 */
-      animation: pendulum 0.2s infinite alternate ease-in-out;
+      animation: pendulum 0.5s infinite alternate ease-in-out;
+      margin-top: -10px;
     }
     /* 摆锤关键帧：左摆 → 右摆 */
     @keyframes pendulum {
