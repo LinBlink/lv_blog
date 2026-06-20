@@ -1,0 +1,31 @@
+{{- if .Store.Get "hasMermaid" }}
+<script type="module">
+  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.esm.min.mjs';
+
+  function getMermaidTheme() {
+    return document.documentElement.dataset.theme === 'dark' ? 'dark' : 'default';
+  }
+
+  const diagrams = document.querySelectorAll('.mermaid');
+  const originals = Array.from(diagrams).map(el => el.textContent);
+
+  mermaid.initialize({ startOnLoad: false, theme: getMermaidTheme() });
+  await mermaid.run();
+
+  // ✅ 监听 <html> 元素的 data-theme 属性变化
+  const observer = new MutationObserver(() => {
+    const newTheme = getMermaidTheme();
+    diagrams.forEach((el, i) => {
+      el.removeAttribute('data-processed');
+      el.innerHTML = originals[i];
+    });
+    mermaid.initialize({ startOnLoad: false, theme: newTheme });
+    mermaid.run();
+  });
+
+  observer.observe(document.documentElement, {   // ✅ 目标是 <html>，不是 <body>
+    attributes: true,
+    attributeFilter: ['data-theme']              // ✅ 过滤 data-theme，不是 class
+  });
+</script>
+{{- end }}
