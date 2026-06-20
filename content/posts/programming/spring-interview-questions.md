@@ -275,7 +275,6 @@ sequenceDiagram
 
 ## BeanFactory 和 FactoryBean 的区别？
 
-
 ### FactoryBean 是什么
 
 ```java
@@ -331,7 +330,7 @@ flowchart LR
 
 ```
 
-### Spring中用到的设计模式
+## Spring中用到的设计模式
 - 单例模式
 - 原型模式（指定作用域为prototype）
 - 工厂模式
@@ -354,10 +353,51 @@ flowchart LR
   - BeanWrapper
 - 责任链模式
   - 使用aop的时候会先生成一个拦截器链
+  - SpringMVC 的filter责任链
 - 代理模式
   - 动态代理
 - 委托者模式
   - delegate
+
+## SpringMVC 适配器请求处理流程
+```mermaid
+flowchart TD
+    A([HTTP请求进来]) --> B
+
+    B["DispatcherServlet\n.doDispatch()"]
+
+    B --> C["HandlerMapping\n.getHandler()\n───────────\n根据URL找到对应Handler\n返回 HandlerExecutionChain"]
+
+    C --> D{"Handler是哪种类型？"}
+
+    D -->|"实现了Controller接口\n（老式写法）"| E1["SimpleControllerHandlerAdapter\n.supports(handler) → true"]
+    D -->|"@RequestMapping注解方法\n（现代写法）"| E2["RequestMappingHandlerAdapter\n.supports(handler) → true"]
+    D -->|"实现了HttpRequestHandler\n（静态资源等）"| E3["HttpRequestHandlerAdapter\n.supports(handler) → true"]
+
+    E1 --> F1["SimpleControllerHandlerAdapter\n.handle()\n───────────\n内部强转后调用：\n((Controller) handler)\n.handleRequest(req, res)"]
+
+    E2 --> F2["RequestMappingHandlerAdapter\n.handle()\n───────────\n内部通过反射调用：\nhandlerMethod.getMethod()\n.invoke(bean, args)"]
+
+    E3 --> F3["HttpRequestHandlerAdapter\n.handle()\n───────────\n内部强转后调用：\n((HttpRequestHandler) handler)\n.handleRequest(req, res)"]
+
+    F1 --> G["返回 ModelAndView\n给 DispatcherServlet"]
+    F2 --> G
+    F3 --> G
+
+    G --> H{"有没有视图？"}
+    H -->|"有视图名\n传统页面"| I["ViewResolver\n.resolveViewName()\n───────────\n解析成View对象\n渲染HTML返回"]
+    H -->|"@ResponseBody\nREST接口"| J["MessageConverter\n.write()\n───────────\n对象序列化为JSON\n直接写入响应体"]
+
+    style B fill:#f4a261,color:#000
+    style E1 fill:#457b9d,color:#fff
+    style E2 fill:#457b9d,color:#fff
+    style E3 fill:#457b9d,color:#fff
+    style F1 fill:#2a9d8f,color:#fff
+    style F2 fill:#2a9d8f,color:#fff
+    style F3 fill:#2a9d8f,color:#fff
+```
+
+
 
 ## SpringMVC 请求处理完整流程
 
