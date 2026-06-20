@@ -359,6 +359,65 @@ flowchart LR
 - 委托者模式
   - delegate
 
+
+## Spring AOP 底层实现原理
+
+### 🥇 第一层：一句话定性（开场）
+
+> "Spring AOP 的底层本质是**动态代理**。Spring 在容器初始化 Bean 的时候，通过 `BeanPostProcessor` 机制拦截，判断这个 Bean 是否需要被增强，如果需要，就用动态代理生成一个代理对象，替换掉原始 Bean 注册进容器。后续所有对这个 Bean 的调用，实际上都是在走代理对象。"
+
+---
+
+### 🥈 第二层：展开两种代理方式（核心）
+
+> "具体的代理方式有两种——"
+>
+> "第一种是 **JDK 动态代理**，基于接口实现，用 `Proxy.newProxyInstance` 生成代理，目标类必须有接口。"
+>
+> "第二种是 **CGLIB 动态代理**，基于字节码在运行时生成目标类的子类，不需要接口，但目标类和方法不能是 `final`。"
+>
+> "Spring Boot 2.x 之后，默认强制走 CGLIB，除非手动配置 `proxyTargetClass = false`。"
+
+---
+
+### 🥉 第三层：说清楚调用链路（亮点）
+
+> "调用链路上，Spring 用 `ReflectiveMethodInvocation` 把所有匹配的 `Advice` 组装成一个**拦截器链**，通过递归 `proceed()` 依次执行。执行顺序是：`@Around` 前半段 → `@Before` → 目标方法 → `@AfterReturning` / `@AfterThrowing` → `@After`（finally）→ `@Around` 后半段。"
+
+---
+
+### 💡 主动抛出一个坑，拉开差距
+
+> "这里有个常见的坑——**同类内自调用会导致 AOP 失效**。比如方法 A 内部用 `this.B()` 调用同类方法 B，走的是原始对象，绕过了代理，`@Transactional` 这种注解就不生效了。解决方案是注入自身的代理对象，或者用 `AopContext.currentProxy()` 拿到当前代理。"
+
+---
+
+### 追问预案
+
+| 面试官追问                             | 你的应对方向                                                                                                               |
+| -------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
+| JDK 和 CGLIB 性能差异？                | JDK 反射调用早期慢，JDK 8+ 有优化；CGLIB 创建慢但调用快；现代版本差距不大                                                  |
+| Spring AOP 和 AspectJ 有什么区别？     | Spring AOP 运行时代理，只能拦截 Spring 管理的 Bean 的方法；AspectJ 编译期/加载期织入字节码，功能更强（可拦截构造器、字段） |
+| `@Transactional` 为什么基于 AOP？      | 它本质是一个 `Around Advice`，在方法前开启事务，正常结束提交，异常回滚                                                     |
+| `BeanPostProcessor` 是什么时候触发的？ | Bean 初始化完成后（`initializeBean` 最后阶段），`postProcessAfterInitialization` 被调用                                    |
+| 为什么 `final` 方法不能被 CGLIB 代理？ | CGLIB 是通过继承生成子类来覆盖方法，`final` 方法无法被子类覆盖，因此拦截不到                                               |
+
+---
+
+### ❌ 常见回答误区
+
+```
+❌ "Spring AOP 就是用了反射"
+   → 太浅，反射只是 JDK 代理调用目标方法的手段
+
+❌ "CGLIB 比 JDK 代理快，所以 Spring 默认用 CGLIB"
+   → 逻辑倒置，Spring Boot 2.x 改默认的原因主要是为了
+     避免「接口代理注入实现类」时的类型转换问题，不是纯性能考量
+
+❌ 把 AspectJ 的编译期织入当成 Spring AOP 的原理来说
+   → 混淆了两套体系，Spring AOP 默认不用 AspectJ 的织入器
+```
+
 ## SpringMVC 适配器请求处理流程
 ```mermaid
 flowchart TD
@@ -446,4 +505,160 @@ sequenceDiagram
     end
 
     DS->>HI: ⑭ afterCompletion()<br/>最终回调（资源清理、异常记录）
+```
+
+## Spring 的事务是如何回滚的
+
+### 🥇 第一层：一句话定性（开场）
+
+> "Spring 的事务回滚，底层是基于 AOP 实现的。`@Transactional` 本质上是一个 `Around Advice`，Spring 在方法执行前开启事务，方法正常返回则提交，如果捕获到异常则触发回滚。具体的事务操作委托给 `PlatformTransactionManager` 来执行，和底层数据库交互。"
+
+---
+
+### 🥈 第二层：说清楚完整流程（核心）
+
+> "具体流程是这样的——"
+
+```mermaid
+flowchart TD
+    A["调用 @Transactional 方法"] --> B
+
+    subgraph TI ["TransactionInterceptor"]
+        B["invoke(MethodInvocation invocation)"]
+    end
+
+    B --> C
+
+    subgraph TAS ["TransactionAspectSupport"]
+        C["invokeWithinTransaction()"]
+        C --> D["createTransactionIfNecessary()\n获取或创建事务"]
+        D --> E["invocation.proceedWithInvocation()\n执行目标方法"]
+        E --> F{结果}
+        F -->|正常返回| G["commitTransactionAfterReturning()"]
+        F -->|抛出异常| H["completeTransactionAfterThrowing()\n判断是否符合回滚规则"]
+        H -->|符合回滚规则| I["rollbackOnException()\n→ rollback()"]
+        H -->|不符合回滚规则| J["commit()"]
+        E --> K["finally:\ncleanupTransactionInfo()"]
+    end
+
+    subgraph APTM ["AbstractPlatformTransactionManager\n（DataSourceTransactionManager 实现）"]
+        D --> L["doBegin()\nconnection.setAutoCommit(false)"]
+        G --> M["doCommit()"]
+        I --> N["doRollback()"]
+        J --> M
+    end
+
+    style B fill:#f39c12,color:#fff
+    style C fill:#f39c12,color:#fff
+    style D fill:#8e44ad,color:#fff
+    style L fill:#8e44ad,color:#fff
+    style E fill:#2ecc71,color:#000
+    style G fill:#27ae60,color:#fff
+    style M fill:#27ae60,color:#fff
+    style H fill:#c0392b,color:#fff
+    style I fill:#e74c3c,color:#fff
+    style N fill:#e74c3c,color:#fff
+    style J fill:#27ae60,color:#fff
+    style K fill:#7f8c8d,color:#fff
+```
+
+> "判断是否回滚，Spring 默认只对 **`RuntimeException` 和 `Error`** 回滚，受检异常（`checked Exception`）默认**不回滚**。"
+
+---
+
+### 🥉 第三层：说清楚回滚规则配置（细节）
+
+> "回滚规则可以手动配置——"
+
+```java
+// 指定某个受检异常也要回滚
+@Transactional(rollbackFor = Exception.class)
+
+// 指定某个异常不回滚
+@Transactional(noRollbackFor = IllegalArgumentException.class)
+```
+
+> "Spring 内部用 `RollbackRuleAttribute` 来匹配异常类型，遍历异常继承链，找到最近的匹配规则来决定是提交还是回滚。"
+
+---
+
+### 💡 主动抛出经典坑点，拉开差距
+
+**坑一：自调用导致事务失效（和 AOP 同根同源）**
+
+> "同类内部方法互调，`@Transactional` 不生效，原因和 AOP 自调用失效一样——绕过了代理对象。"
+
+```java
+@Service
+public class OrderService {
+    public void placeOrder() {
+        this.pay(); // ❌ 事务不生效，走的是原始对象
+    }
+
+    @Transactional
+    public void pay() { ... }
+}
+```
+
+**坑二：异常被吃掉，事务无法感知**
+
+> "如果在方法内部把异常 `try-catch` 吃掉了，`TransactionInterceptor` 捕获不到异常，就不会触发回滚。"
+
+```java
+@Transactional
+public void pay() {
+    try {
+        db.update(...);
+    } catch (Exception e) {
+        log.error("error", e); // ❌ 异常被吃，事务照常提交
+    }
+}
+```
+
+> "解决方法：catch 后手动标记回滚——"
+
+```java
+catch (Exception e) {
+    TransactionAspectSupport.currentTransactionStatus()
+        .setRollbackOnly(); // ✅ 手动触发回滚
+}
+```
+
+**坑三：受检异常默认不回滚**
+
+```java
+@Transactional
+public void pay() throws IOException {
+    throw new IOException("文件不存在"); // ❌ 默认不回滚！
+}
+
+// 正确做法：
+@Transactional(rollbackFor = Exception.class) // ✅
+```
+
+---
+
+### 追问预案
+
+| 面试官追问                           | 应对方向                                                                                                                        |
+| ------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------- |
+| 事务传播机制说一下？                 | `REQUIRED`（默认，加入或新建）/ `REQUIRES_NEW`（挂起外层，新建）/ `NESTED`（嵌套，savepoint）等 7 种，重点说前三                |
+| `REQUIRES_NEW` 和 `NESTED` 的区别？  | `REQUIRES_NEW` 是完全独立的新事务，外层回滚不影响它；`NESTED` 是嵌套在外层事务里，外层回滚会带着它一起滚                        |
+| Spring 事务和数据库事务的关系？      | Spring 事务是对数据库连接 `connection` 的封装管理，最终还是靠数据库的 ACID 保证，Spring 只是控制了 `commit` / `rollback` 的时机 |
+| 多线程下 `@Transactional` 还有效吗？ | 无效。Spring 事务通过 `ThreadLocal` 绑定当前线程的 connection，子线程拿不到同一个 connection，事务无法传播                      |
+| `@Transactional` 加在接口上有效吗？  | 不推荐。JDK 代理下勉强可以，CGLIB 代理下完全无效，Spring 官方建议始终加在实现类上                                               |
+
+---
+
+### ❌ 常见回答误区
+
+```
+❌ "Spring 事务就是加了个注解，自动提交和回滚"
+   → 没说出 AOP 代理、TransactionInterceptor、连接管理这些核心机制
+
+❌ "所有异常都会回滚"
+   → 经典错误，默认只回滚 RuntimeException 和 Error
+
+❌ "事务传播只知道 REQUIRED"
+   → 至少要能说出 REQUIRES_NEW 和 NESTED 及其区别
 ```
