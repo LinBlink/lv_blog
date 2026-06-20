@@ -40,14 +40,6 @@ flowchart TD
     K --> L["initializeBean()<br/>初始化回调"]
     L --> M[注册销毁方法]
     M --> N[返回完整 Bean 实例]
-
-    style B fill:#e1f5fe
-    style D fill:#fff3e0
-    style E fill:#fff3e0
-    style H fill:#f3e5f5
-    style I fill:#f3e5f5
-    style J fill:#e8f5e9
-    style K fill:#e8f5e9
 ```
 
 ## 谈谈 SpringIOC 的理解，原理和实现？
@@ -157,14 +149,6 @@ flowchart TD
     style RUNNING fill:#43A047,color:#fff
     style END fill:#e53935,color:#fff
     style REFRESH fill:#1E88E5,color:#fff
-    style PHASE1 fill:#e3f2fd,stroke:#2196F3
-    style PHASE2 fill:#e8f5e9,stroke:#4CAF50
-    style PHASE3 fill:#fff8e1,stroke:#FF9800
-    style PHASE4 fill:#fce4ec,stroke:#E91E63
-    style PHASE5 fill:#f3e5f5,stroke:#9C27B0
-    style PHASE6 fill:#fff3e0,stroke:#FF5722
-    style PHASE7 fill:#e8f5e9,stroke:#43A047
-    style PHASE8 fill:#ffebee,stroke:#f44336
 ```
 
 ## bean 的生命周期
@@ -233,10 +217,6 @@ flowchart TD
     style INITMETHOD fill:#fffde7,stroke:#FFC107
     style CACHE fill:#e8f5e9,stroke:#4CAF50
     style DESTROY fill:#ffebee,stroke:#f44336
-    style A fill:#f3e5f5,stroke:#9C27B0
-    style B fill:#f3e5f5,stroke:#9C27B0
-    style C fill:#f3e5f5,stroke:#9C27B0
-    style K fill:#c8e6c9,stroke:#388E3C
 ```
 
 ## spring 三级缓存依赖流程
@@ -380,4 +360,59 @@ flowchart LR
 - 适配器模式
   - HandlerAdapter
 - 装饰者模式
+  - BeanWrapper
 - 责任链模式
+  - 使用aop的时候会先生成一个拦截器链
+- 代理模式
+  - 动态代理
+- 委托者模式
+  - delegate
+
+## SpringMVC 请求处理完整流程
+
+```mermaid
+sequenceDiagram
+    actor 用户浏览器
+    participant DS as DispatcherServlet<br/>（前台接待员）
+    participant HM as HandlerMapping<br/>（路由查找器）
+    participant HI as HandlerInterceptor<br/>（拦截器）
+    participant HA as HandlerAdapter<br/>（适配器）
+    participant HC as Handler/Controller<br/>（真正干活的）
+    participant MAR as MessageConverter<br/>（数据转换器）
+    participant VR as ViewResolver<br/>（视图解析器）
+    participant V as View<br/>（模板/页面）
+
+    用户浏览器->>DS: ① HTTP 请求（GET /home）
+
+    DS->>HM: ② 我收到请求了，谁来处理？
+    HM-->>DS: ③ 返回 HandlerExecutionChain<br/>（Handler + 拦截器列表）
+
+    DS->>HI: ④ preHandle()<br/>前置拦截（登录校验、日志等）
+    alt 拦截器返回 false
+        HI-->>用户浏览器: 直接拦截返回（如跳转登录页）
+    end
+
+    DS->>HA: ⑤ 找到能处理这个 Handler 的适配器<br/>（supports() 方法匹配）
+    
+    HA->>HC: ⑥ 调用 Handler<br/>（handle() 统一入口）
+
+    note over HC: 执行业务逻辑<br/>调用 Service / DAO
+
+    HC-->>HA: ⑦ 返回结果<br/>（ModelAndView 或 @ResponseBody 数据）
+
+    HA-->>DS: ⑧ 返回 ModelAndView
+
+    DS->>HI: ⑨ postHandle()<br/>后置拦截（可修改 ModelAndView）
+
+    alt 返回 @ResponseBody（REST接口）
+        DS->>MAR: ⑩ 用 MessageConverter 把对象<br/>序列化为 JSON/XML
+        MAR-->>用户浏览器: ⑪ 直接写入响应体返回
+    else 返回视图名（传统MVC）
+        DS->>VR: ⑩ 解析视图名 → 找到模板文件
+        VR-->>DS: ⑪ 返回 View 对象
+        DS->>V: ⑫ 渲染视图（填充 Model 数据）
+        V-->>用户浏览器: ⑬ 返回 HTML 页面
+    end
+
+    DS->>HI: ⑭ afterCompletion()<br/>最终回调（资源清理、异常记录）
+```

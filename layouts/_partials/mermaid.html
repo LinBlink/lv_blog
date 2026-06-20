@@ -1,4 +1,28 @@
 {{- if .Store.Get "hasMermaid" }}
+<script src="https://cdn.jsdelivr.net/npm/svg-pan-zoom@3.6.1/dist/svg-pan-zoom.min.js"></script>
+
+<style>
+  .mermaid-wrapper {
+    width: 100%;
+    overflow: hidden;
+    background: transparent;
+    border: 1px solid rgba(128, 128, 128, 0.1);
+    border-radius: 4px;
+    margin-bottom: 1em;
+  }
+
+  .mermaid svg {
+    width: 100% !important;
+    max-width: 100% !important;
+    display: block;
+    cursor: grab;
+  }
+
+  .mermaid svg:active {
+    cursor: grabbing;
+  }
+</style>
+
 <script type="module">
   import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.esm.min.mjs';
 
@@ -9,23 +33,78 @@
   const diagrams = document.querySelectorAll('.mermaid');
   const originals = Array.from(diagrams).map(el => el.textContent);
 
-  mermaid.initialize({ startOnLoad: false, theme: getMermaidTheme() });
-  await mermaid.run();
+  let zoomInstances = [];
 
-  // ✅ 监听 <html> 元素的 data-theme 属性变化
-  const observer = new MutationObserver(() => {
+  function initPanZoom() {
+    zoomInstances.forEach(instance => {
+      try { instance.destroy(); } catch (e) { }
+    });
+    zoomInstances = [];
+
+    diagrams.forEach(el => {
+      const svg = el.querySelector('svg');
+      if (svg) {
+        // 1. 清理干扰样式
+        svg.removeAttribute('style');
+        svg.style.width = '100%';
+
+        // 2. 🔥 【核心修改】通过 getBBox() 获取 SVG 内部图形真正占据的物理高度
+        // 并额外增加 40px 的缓冲 margin（防止底部字线被贴边切掉）
+        let realHeight = svg.getBBox().height + 40;
+
+        // 3. 将真实精确的高度应用给 SVG
+        svg.style.height = realHeight + 'px';
+
+        // 4. 启动缩放
+        const instance = svgPanZoom(svg, {
+          zoomEnabled: true,
+          controlIconsEnabled: true,
+          fit: true,
+          center: true,
+          minZoom: 0.1,
+          maxZoom: 10,
+        });
+        zoomInstances.push(instance);
+      }
+    });
+  }
+
+  // 第一次运行
+  mermaid.initialize({ startOnLoad: false, theme: getMermaidTheme() });
+
+  diagrams.forEach(el => {
+    if (!el.parentElement.classList.contains('mermaid-wrapper')) {
+      const wrapper = document.createElement('div');
+      wrapper.className = 'mermaid-wrapper';
+      el.parentNode.insertBefore(wrapper, el);
+      wrapper.appendChild(el);
+    }
+  });
+
+  await mermaid.run();
+  initPanZoom();
+
+  // 监听 <html> 元素的 data-theme 属性变化
+  const observer = new MutationObserver(async () => {
     const newTheme = getMermaidTheme();
+
     diagrams.forEach((el, i) => {
       el.removeAttribute('data-processed');
       el.innerHTML = originals[i];
     });
-    mermaid.initialize({ startOnLoad: false, theme: newTheme });
-    mermaid.run();
+
+    mermaid.initialize({
+      startOnLoad: false,
+      theme: newTheme
+    });
+
+    await mermaid.run();
+    initPanZoom();
   });
 
-  observer.observe(document.documentElement, {   // ✅ 目标是 <html>，不是 <body>
+  observer.observe(document.documentElement, {
     attributes: true,
-    attributeFilter: ['data-theme']              // ✅ 过滤 data-theme，不是 class
+    attributeFilter: ['data-theme']
   });
 </script>
 {{- end }}
