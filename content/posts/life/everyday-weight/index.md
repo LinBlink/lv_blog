@@ -6,9 +6,10 @@ categories = ["生活"]
 tags = ["每日记录"]
 +++
 
-
-<div id="weightTable" style="display:flex;justify-content:center;"></div>
-
+<center>
+身高 179cm
+<div id="weightTable"></div>
+</center>
 <script src="weight-table.js"></script>
 <canvas id="weightChart" style="width:100%;margin:0 auto 2rem"></canvas>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>

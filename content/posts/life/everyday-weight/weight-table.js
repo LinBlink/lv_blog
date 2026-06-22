@@ -3,19 +3,20 @@ const lang = document.documentElement.lang;
 let date_txt = "日期";
 let weight_txt = "体重";
 let diff_txt = "和前一天比较";
+let current_bmi_txt = "当前BMI";
 
 switch (lang) {
   case "en":
-      date_txt = "Date";
-      weight_txt = "Weight";
-      diff_txt = "Compare to Yesterday";
+    date_txt = "Date";
+    weight_txt = "Weight";
+    diff_txt = "Compare to Yesterday";
+    current_bmi_txt = "Current BMI";
     break;
 }
 
 // 🐷 从服务器读取体重记录文件
 // fetch() 会发起一个 HTTP 请求，返回一个 Promise
 fetch("/posts/life/everyday-weight/weight.json")
-
   // 📦 第一步：把服务器返回的数据解析成 JSON 对象
   .then((response) => response.json())
 
@@ -24,10 +25,8 @@ fetch("/posts/life/everyday-weight/weight.json")
   // goal    = 目标体重
   // unit    = 单位（kg / lb）
   .then(({ records, goal, unit }) => {
-
     // 🏠 获取用于显示表格的容器节点
     const container = document.getElementById("weightTable");
-
 
     // 📊 生成所有表格行
     const rows = records
@@ -41,24 +40,15 @@ fetch("/posts/life/everyday-weight/weight.json")
       .reverse()
 
       // ✨ 将每条记录转换成 HTML 表格行
-      .map(
-        ({ date, weight },index,arr) => {
-
+      .map(({ date, weight }, index, arr) => {
         // 🎯 计算距离目标体重的差值
         // toFixed(1) 保留 1 位小数
         const prevWeight =
-          index < arr.length - 1
-            ? arr[index + 1].weight
-            : null;
+          index < arr.length - 1 ? arr[index + 1].weight : null;
 
         // 📈 计算相较前一天的变化
-        const diff =
-          prevWeight != null
-            ? (weight - prevWeight).toFixed(1)
-            : 0;
+        const diff = prevWeight != null ? (weight - prevWeight).toFixed(1) : 0;
         const lang = "zh";
-
-
 
         // 🏗️ 返回一行 HTML
         return `
@@ -81,13 +71,24 @@ fetch("/posts/life/everyday-weight/weight.json")
       // 🧵 把所有表格行拼接成一个字符串
       .join("");
 
-    
+    const latest_weight = records.slice().reverse().at(-1).weight;
 
+    let current_BMI = latest_weight / (1.79 * 1.79);
+    current_BMI = current_BMI.toFixed(1);
+    const bmi_to_goal = current_BMI - 18.5;
 
     // 🎨 将完整表格插入页面
     container.innerHTML = `
-      <table style="width:fit-content">
 
+      <div style="">
+        ${current_bmi_txt} 
+        <span style="color:red"> ${current_BMI} </span>
+        (${bmi_to_goal > 0 ? "+" : ""}${bmi_to_goal})
+      </div>
+
+      <br/>
+
+      <table style="width:fit-content">
         <!-- 🏷️ 表头 -->
         <thead>
           <tr>

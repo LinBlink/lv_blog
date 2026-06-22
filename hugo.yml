@@ -21,7 +21,7 @@ languages:
     params:
       footer:
         text: "保留所有权利"
-      updatingText: 갱신 중
+      updatingText: 更新中
     menu:
       main:
         - name: "🤔思考"
@@ -115,7 +115,7 @@ params:
     threshold: 0.4
     minMatchCharLength: 0
     # limit: 10 # refer: https://www.fusejs.io/api/methods.html#search
-    keys: ["content"]
+    keys: ["content", "title"]
 
 # 输出格式（启用 RSS）
 outputs:

@@ -268,9 +268,6 @@ img {
   top: 20px;
   right: 20px;
 
-  width: 22px;
-  height: 22px;
-
   background: rgba(0, 0, 0, 0.5);
   color: #fff;
 
