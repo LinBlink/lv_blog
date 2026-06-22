@@ -61,8 +61,6 @@ tags = [""]
 
 ![范特西天空。Fantasy sky._0](https://img.wathan.cn/images/2026/06/a7a59cadfc68eab73a29b8ab59d322222a2d6b41bb10cece4a3a8d46c0602da8.jpg)
 
-![雪下畫雪](C:\Users\wangb\Desktop\QzoneHistory\827650791\pictures\雪下畫雪%23江苏大学中山校区摄。_0.jpg)
-
 ![月亮，蛋糕。Moon,cake._0](https://img.wathan.cn/images/2026/06/744a7e34825d92e4d703563fb72ae8667c662164b0edb69cc54b84b3b85339ed.jpg)
 
 ![本来就是个巧合，却又那么错落有致。_0](https://img.wathan.cn/images/2026/06/fb57698997d8502a028f5ecd4ff352d0d90e4934c0b71e99f7efff966a357512.jpg)
