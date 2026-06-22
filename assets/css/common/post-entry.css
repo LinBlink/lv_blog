@@ -108,18 +108,22 @@
 .entry-cover {
     font-size: 14px;
     margin-bottom: var(--gap);
-    text-align: left;
+    text-align: center;
     display: flex;
     flex-direction: column;
+    justify-items: center;
+    justify-self:center;
+    height: 200px;
     gap: .5rem;
+
 }
 
 .entry-cover img {
-    /* border-radius: var(--radius); */
-    clip-path: circle(50%);
-    height: 200px;
+    border-radius: var(--radius);
     object-fit:contain;
     object-position: center;
+    height: 100%;
+    width: fit-content;
 }
 
 .entry-cover a {
