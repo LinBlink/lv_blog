@@ -60,9 +60,6 @@
     border-color: var(--tertiary);
 }
 
-.tag-entry .entry-cover {
-    display: none;
-}
 
 .entry-header h2 {
     font-size: 24px;
@@ -118,10 +115,11 @@
 }
 
 .entry-cover img {
-    border-radius: var(--radius);
-    width: 200px;
+    /* border-radius: var(--radius); */
+    clip-path: circle(50%);
+    height: 200px;
     object-fit:contain;
-    object-position: left;
+    object-position: center;
 }
 
 .entry-cover a {
