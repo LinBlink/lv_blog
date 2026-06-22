@@ -1,6 +1,6 @@
 +++
 date = '2026-06-18T12:48:03+08:00'
-draft = true
+draft = false
 title = 'AWS 学习'
 categories = ["编程"]
 tags = ["学习笔记"]

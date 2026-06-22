@@ -1,6 +1,6 @@
 +++
 date = '2026-06-22T10:37:22+08:00'
-draft = true
+draft = false
 title = '我的高中'
 categories = ["摄影"]
 tags = [""]

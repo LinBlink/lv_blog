@@ -1,6 +1,6 @@
 +++
 date = '2024-07-29T19:29:10+08:00'
-draft = true
+draft = false
 title = '学不会'
 categories = ["随笔"]
 tags = [""]

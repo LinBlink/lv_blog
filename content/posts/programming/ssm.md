@@ -1,6 +1,6 @@
 +++
 date = '2026-06-18T12:40:44+08:00'
-draft = true
+draft = false
 title = 'SSM框架 学习'
 categories = ["编程"]
 tags = ["学习笔记"]
@@ -20,11 +20,11 @@ BeanFactory（顶层接口）
 
 **BeanFactory vs ApplicationContext 核心区别：**
 
-| 特性 | BeanFactory | ApplicationContext |
-|------|-------------|-------------------|
-| Bean 初始化时机 | **懒加载**（第一次 getBean 时） | **饿加载**（容器启动时） |
-| 功能 | 基础 IoC | IoC + 事件发布 + 国际化 + AOP等 |
-| 使用场景 | 资源极度受限的嵌入式 | 99% 的业务场景 |
+| 特性            | BeanFactory                     | ApplicationContext              |
+| --------------- | ------------------------------- | ------------------------------- |
+| Bean 初始化时机 | **懒加载**（第一次 getBean 时） | **饿加载**（容器启动时）        |
+| 功能            | 基础 IoC                        | IoC + 事件发布 + 国际化 + AOP等 |
+| 使用场景        | 资源极度受限的嵌入式            | 99% 的业务场景                  |
 
 > **ApplicationContext 为什么没有 close()？**  
 > `ApplicationContext` 接口本身不定义 `close()`，是为了保持接口的通用性（不是所有容器都能/需要被关闭，如 Web 容器）。但其实现类 `AbstractApplicationContext` 实现了 `Closeable`，可以强转后调用，或用 `ConfigurableApplicationContext` 接口接收。
@@ -130,17 +130,17 @@ public class OrderService {
 
 ### 2.1 核心注解速查
 
-| 注解 | 作用 | 等价XML |
-|------|------|---------|
-| `@Component` | 通用Bean声明 | `<bean>` |
-| `@Service` | Service层 | `<bean>` |
-| `@Repository` | DAO层 | `<bean>` |
-| `@Controller` | MVC控制层 | `<bean>` |
-| `@Configuration` | 配置类 | `<beans>` |
-| `@ComponentScan` | 开启组件扫描 | `<context:component-scan>` |
-| `@Bean` | 方法产生Bean | `<bean>` |
-| `@Import` | 导入其他配置类 | `<import>` |
-| `@Scope("prototype")` | 作用范围 | `scope="prototype"` |
+| 注解                  | 作用           | 等价XML                    |
+| --------------------- | -------------- | -------------------------- |
+| `@Component`          | 通用Bean声明   | `<bean>`                   |
+| `@Service`            | Service层      | `<bean>`                   |
+| `@Repository`         | DAO层          | `<bean>`                   |
+| `@Controller`         | MVC控制层      | `<bean>`                   |
+| `@Configuration`      | 配置类         | `<beans>`                  |
+| `@ComponentScan`      | 开启组件扫描   | `<context:component-scan>` |
+| `@Bean`               | 方法产生Bean   | `<bean>`                   |
+| `@Import`             | 导入其他配置类 | `<import>`                 |
+| `@Scope("prototype")` | 作用范围       | `scope="prototype"`        |
 
 ### 2.2 Bean 生命周期回调
 
@@ -486,15 +486,15 @@ public class AccountService {
 
 **场景：A 方法（事务管理员）调用 B 方法（事务协调员）**
 
-| 传播行为 | 说明 | 场景 |
-|----------|------|------|
-| **REQUIRED**（默认） | 有事务就加入，没有就新建 | 99% 场景 |
-| **REQUIRES_NEW** | 无论如何都新建独立事务，与调用方事务隔离 | 日志记录（主流程回滚，日志仍要保存） |
-| `SUPPORTS` | 有事务就加入，没有就不用事务执行 | 只读查询 |
-| `NOT_SUPPORTED` | 不使用事务（挂起当前事务） | 不需要事务的操作 |
-| `MANDATORY` | 必须在已有事务中执行，否则抛异常 | 强制要求调用方开启事务 |
-| `NEVER` | 不能在事务中执行，否则抛异常 | - |
-| `NESTED` | 在当前事务中创建保存点（嵌套事务） | 部分回滚 |
+| 传播行为             | 说明                                     | 场景                                 |
+| -------------------- | ---------------------------------------- | ------------------------------------ |
+| **REQUIRED**（默认） | 有事务就加入，没有就新建                 | 99% 场景                             |
+| **REQUIRES_NEW**     | 无论如何都新建独立事务，与调用方事务隔离 | 日志记录（主流程回滚，日志仍要保存） |
+| `SUPPORTS`           | 有事务就加入，没有就不用事务执行         | 只读查询                             |
+| `NOT_SUPPORTED`      | 不使用事务（挂起当前事务）               | 不需要事务的操作                     |
+| `MANDATORY`          | 必须在已有事务中执行，否则抛异常         | 强制要求调用方开启事务               |
+| `NEVER`              | 不能在事务中执行，否则抛异常             | -                                    |
+| `NESTED`             | 在当前事务中创建保存点（嵌套事务）       | 部分回滚                             |
 
 ```java
 @Service
@@ -649,11 +649,11 @@ public class UserController {
 
 **三个参数注解的区别：**
 
-| 注解 | 取值来源 | 典型场景 |
-|------|----------|----------|
+| 注解            | 取值来源                     | 典型场景           |
+| --------------- | ---------------------------- | ------------------ |
 | `@RequestParam` | URL 查询参数（`?key=value`） | 分页参数、过滤条件 |
-| `@RequestBody` | 请求体（JSON/XML） | POST/PUT 提交数据 |
-| `@PathVariable` | URL 路径段（`/users/{id}`） | RESTful 资源ID |
+| `@RequestBody`  | 请求体（JSON/XML）           | POST/PUT 提交数据  |
+| `@PathVariable` | URL 路径段（`/users/{id}`）  | RESTful 资源ID     |
 
 ---
 
@@ -743,13 +743,13 @@ public class GlobalExceptionHandler {
 
 #### 拦截器 vs 过滤器
 
-| 对比项 | 拦截器（Interceptor） | 过滤器（Filter） |
-|--------|----------------------|-----------------|
-| 规范 | Spring MVC | Servlet |
-| 作用范围 | Controller 请求 | 所有请求（包括静态资源） |
-| 访问 Spring Bean | ✅ 可以 | ❌ 较难 |
-| 粒度 | 更细（方法级别） | 较粗（URL级别） |
-| 典型用途 | 登录检查、权限校验、日志 | 编码处理、跨域、限流 |
+| 对比项           | 拦截器（Interceptor）    | 过滤器（Filter）         |
+| ---------------- | ------------------------ | ------------------------ |
+| 规范             | Spring MVC               | Servlet                  |
+| 作用范围         | Controller 请求          | 所有请求（包括静态资源） |
+| 访问 Spring Bean | ✅ 可以                   | ❌ 较难                   |
+| 粒度             | 更细（方法级别）         | 较粗（URL级别）          |
+| 典型用途         | 登录检查、权限校验、日志 | 编码处理、跨域、限流     |
 
 #### 拦截器实现
 
@@ -876,12 +876,12 @@ pre1(false) → （什么都不执行）
 
 ### 6.2 依赖范围（scope）
 
-| scope | 编译 | 测试 | 运行时 | 说明 |
-|-------|------|------|--------|------|
-| `compile`（默认） | ✅ | ✅ | ✅ | 全范围，会打包进jar/war |
-| `test` | ❌ | ✅ | ❌ | 仅测试，如 JUnit |
-| `provided` | ✅ | ✅ | ❌ | 运行时由容器提供，如 servlet-api |
-| `runtime` | ❌ | ✅ | ✅ | 只运行时需要，如 JDBC 驱动 |
+| scope             | 编译 | 测试 | 运行时 | 说明                             |
+| ----------------- | ---- | ---- | ------ | -------------------------------- |
+| `compile`（默认） | ✅    | ✅    | ✅      | 全范围，会打包进jar/war          |
+| `test`            | ❌    | ✅    | ❌      | 仅测试，如 JUnit                 |
+| `provided`        | ✅    | ✅    | ❌      | 运行时由容器提供，如 servlet-api |
+| `runtime`         | ❌    | ✅    | ✅      | 只运行时需要，如 JDBC 驱动       |
 
 **`javax.servlet-api` 为什么必须用 `provided`？**
 > Tomcat 容器本身已经包含了 Servlet API 的实现。如果打包进 war，会与 Tomcat 自带的版本冲突，导致 `ClassCastException` 或类加载错误。`provided` 表示"编译时需要，运行时由容器提供，打包时排除"。
