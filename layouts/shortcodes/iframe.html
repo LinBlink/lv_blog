@@ -1,0 +1,16 @@
+<div class="iframe-container" style="width: 100%;">
+  <iframe src="{{ .Get " src" }}" id="hugo-iframe-{{ .Ordinal }}" width="100%"
+    style="border: none; width: 100%; transition: height 0.2s ease;" scrolling="no" onload="resizeIframe(this)">
+  </iframe>
+</div>
+
+<script>
+  function resizeIframe(obj) {
+    // 确保 iframe 内部页面加载完成后计算高度
+    try {
+      obj.style.height = obj.contentWindow.document.documentElement.scrollHeight + 'px';
+    } catch (e) {
+      console.error("无法自动调整高度，可能是跨域限制。报错信息:", e);
+    }
+  }
+</script>

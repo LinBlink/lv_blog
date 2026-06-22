@@ -1,27 +1,26 @@
-baseURL: 'https://lv-blog.pages.dev/'
-title: 'LOCRIAN_V blog 博客'
-theme: 'PaperMod'
-defaultContentLanguage: 'zh'
-defaultContentLanguageInSubdir: false  # 中文为根路径，不加 /zh/ 前缀
+baseURL: "https://lv-blog.pages.dev/"
+title: "LOCRIAN_V blog 博客"
+theme: "PaperMod"
+defaultContentLanguage: "zh"
+defaultContentLanguageInSubdir: false # 中文为根路径，不加 /zh/ 前缀
 buildDrafts: true
 
 markup:
   goldmark:
     renderer:
-      unsafe: true  # 允许在 Markdown 中使用原生 HTML
-      
-     
+      unsafe: true # 允许在 Markdown 中使用原生 HTML
+
 # 多语言配置
 languages:
   # ---------------- 中文版配置 ----------------
   zh:
-    LanguageName : "中文"
-    title: '洛克里亚的五度 博客'
-    LanguageCode: 'zh'
+    LanguageName: "中文"
+    title: "洛克里亚的五度 博客"
+    LanguageCode: "zh"
     weight: 1
     params:
       footer:
-        text: '保留所有权利'
+        text: "保留所有权利"
       updatingText: 갱신 중
     menu:
       main:
@@ -37,8 +36,8 @@ languages:
         - name: "🔨项目"
           url: "/categories/项目/"
           weight: 41
-        - name: "🖊小说"
-          url: "/categories/小说/"
+        - name: "📷摄影"
+          url: "/categories/摄影/"
           weight: 42
         - name: "所有分类"
           url: "/categories/"
@@ -52,18 +51,18 @@ languages:
 
   # ---------------- 英文版配置 ----------------
   en:
-    LanguageName : "En"
-    title: 'LOCRIAN_V Blog'
-    LanguageCode: 'en'
+    LanguageName: "En"
+    title: "LOCRIAN_V Blog"
+    LanguageCode: "en"
     weight: 2
     params:
       footer:
-        text: 'All Rights Reserved'
+        text: "All Rights Reserved"
       updatingText: UPDATING
     menu:
       main:
         - name: "🤔Thoughts"
-          url: "/categories/thoughts/"   # 与中文保持同一 taxonomy slug
+          url: "/categories/thoughts/" # 与中文保持同一 taxonomy slug
           weight: 10
         - name: "💻Programming"
           url: "/categories/programming/"
@@ -74,6 +73,9 @@ languages:
         - name: "🔨Projects"
           url: "/categories/projects/"
           weight: 41
+        - name: "📷Photography"
+          url: "/categories/photography/"
+          weight: 42
         - name: "Categories"
           url: "/categories/"
           weight: 50
@@ -86,20 +88,24 @@ languages:
 
 # PaperMod 主题全局参数
 params:
-  defaultTheme: auto          # 跟随系统深浅色（auto / light / dark）
-  ShowReadingTime: true       # 显示阅读时长
-  ShowBreadCrumbs: true       # 显示面包屑导航
-  ShowPostNavLinks: true      # 文章底部上下篇导航
-  ShowShareButtons: true     # 关闭分享按钮（国内环境意义不大）
-  ShowCodeCopyButtons: true   # 代码块显示复制按钮
-  ShowToc: true               # 显示文章目录
-  TocOpen: false              # 目录默认折叠
+  defaultTheme: auto # 跟随系统深浅色（auto / light / dark）
+  ShowReadingTime: true # 显示阅读时长
+  ShowBreadCrumbs: true # 显示面包屑导航
+  ShowPostNavLinks: true # 文章底部上下篇导航
+  ShowShareButtons: true # 关闭分享按钮（国内环境意义不大）
+  ShowCodeCopyButtons: true # 代码块显示复制按钮
+  ShowToc: true # 显示文章目录
+  TocOpen: false # 目录默认折叠
   dateFormat: "2006-01-02 03:04:05 PM"
   label:
-    icon: 'logo.jpg'
+    icon: "logo.jpg"
     iconHeight: 30
   enableGitInfo: true
   displayFullLangName: true
+
+  cover:
+    hiddenInList: false
+    linkFullImages: true
 
   fuseOpts:
     isCaseSensitive: false
@@ -111,10 +117,9 @@ params:
     # limit: 10 # refer: https://www.fusejs.io/api/methods.html#search
     keys: ["content"]
 
-
 # 输出格式（启用 RSS）
 outputs:
   home:
     - HTML
     - RSS
-    - JSON   # PaperMod 搜索功能依赖 JSON
+    - JSON # PaperMod 搜索功能依赖 JSON

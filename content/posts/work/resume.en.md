@@ -7,4 +7,4 @@ tags = ["interviewer"]
 
 +++
 
-Resume has not completed yet .
+It's still in progress .

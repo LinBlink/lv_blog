@@ -134,7 +134,7 @@ details li ul {
 
 .post-content table {
     display: block;          /* 将表格改为块级元素 */
-    width: 100%;             /* 撑满父容器 */
+    width: fit-content;             /* 撑满父容器 */
     overflow-x: auto;        /* 关键：横向溢出时自动出现滚动条 */
     white-space: nowrap;     /* 可选：如果你不希望单元格内的文字换行，保持整齐 */
 }
