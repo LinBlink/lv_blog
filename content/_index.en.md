@@ -4,7 +4,164 @@ layout: "home" # Rendition as homepage
 
 ---
 
-## What kind of ethereal wind blew you in🍃!
+
+<style>
+.magic-text {
+  background: linear-gradient(
+    90deg,
+    #ff4d4f,
+    #ff7a45,
+    #ffa940,
+    #73d13d,
+    #40a9ff,
+    #9254de
+  );
+  background-size: 300% 300%;
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+
+  font-weight: bold;
+  position: relative;
+
+  animation: gradientFlow 6s ease infinite,
+             subtleFloat 3s ease-in-out infinite;
+}
+
+/* 🌈 彩虹流动 */
+@keyframes gradientFlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* 🌊 轻微漂浮（让文字更“活”） */
+@keyframes subtleFloat {
+  0%, 100% {
+    transform: translateY(0px) scale(1);
+    filter: brightness(1);
+  }
+  50% {
+    transform: translateY(-2px) scale(1.02);
+    filter: brightness(1.15);
+  }
+}
+
+/* ✨ 额外加一层“扫光效果”（可选但很加分） */
+.magic-text::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -60%;
+  width: 50%;
+  height: 100%;
+
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255,255,255,0.5),
+    transparent
+  );
+
+  transform: skewX(-20deg);
+  animation: shine 3.5s infinite;
+}
+
+@keyframes shine {
+  0% {
+    left: -60%;
+  }
+  100% {
+    left: 160%;
+  }
+}
+
+.magic-text {
+  position: relative;
+  display: inline-block;
+  will-change: transform, filter;
+}
+
+/* 🌬️ 风吹主动画 */
+.magic-text {
+  animation:
+    gradientFlow 6s ease infinite,
+    subtleFloat 3s ease-in-out infinite,
+    windBlow 2.8s ease-in-out infinite;
+}
+
+/* 🌪️ 风吹：左右扰动 + 轻微拉伸 */
+@keyframes windBlow {
+  0% {
+    transform: translateX(0px) skewX(0deg);
+    filter: blur(0px);
+  }
+
+  20% {
+    transform: translateX(-2px) skewX(-2deg);
+    filter: blur(0.3px);
+  }
+
+  40% {
+    transform: translateX(3px) skewX(2deg);
+    filter: blur(0px);
+  }
+
+  60% {
+    transform: translateX(-1px) skewX(-1deg);
+    filter: blur(0.2px);
+  }
+
+  80% {
+    transform: translateX(2px) skewX(1deg);
+    filter: blur(0px);
+  }
+
+  100% {
+    transform: translateX(0px) skewX(0deg);
+    filter: blur(0px);
+  }
+}
+
+.magic-text::before {
+  content: attr(data-text);
+  position: absolute;
+  left: 0;
+  top: 0;
+
+  width: 100%;
+  height: 100%;
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  opacity: 0.15;
+  filter: blur(1px);
+
+  animation: windGhost 2.8s ease-in-out infinite;
+}
+
+@keyframes windGhost {
+  0% {
+    transform: translateX(0px);
+  }
+  50% {
+    transform: translateX(6px);
+  }
+  100% {
+    transform: translateX(0px);
+  }
+}
+</style>
+
+## What kind of <span class="magic-text">Ethereal Wind</span> blew you in🍃!
 
 Come on in and see if anything catches your eye, my dear friend😉.
 

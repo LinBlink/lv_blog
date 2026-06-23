@@ -160,6 +160,26 @@
     text-decoration-thickness: 2px;
 }
 
+.menu li:nth-last-child(3),
+.menu li:nth-last-child(2),
+.menu li:nth-last-child(3) .active
+.menu li:nth-last-child(2) .active{
+  background: linear-gradient(
+    90deg,
+    #ff4d4f,
+    #ff7a45,
+    #ffa940,
+    #73d13d,
+    #40a9ff,
+    #9254de
+  );
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: bold;
+}
+
 /* ========================================
    小屏幕优化（≤ 640px）
 ======================================== */
