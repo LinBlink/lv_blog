@@ -1,0 +1,56 @@
+/* ===== 分类标签云 ===== */
+
+.page-header {
+    margin-bottom: 2rem;
+}
+
+.page-header h1 {
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.taxonomy-cloud {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem 1rem;
+    align-items: center;
+    padding: 2rem 0;
+    line-height: 1.8;
+}
+
+.taxonomy-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3em;
+    padding: 0.2em 0.6em;
+    border: 2px solid;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: transform 0.18s ease, opacity 0.18s ease, box-shadow 0.18s ease;
+    /* 颜色由 style 内联控制，不要在这里写 color */
+}
+
+.taxonomy-tag:hover {
+    transform: translateY(-3px) scale(1.06);
+    opacity: 0.85;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    text-decoration: none;
+}
+
+.tag-name {
+    /* 继承父级字体大小 */
+}
+
+.tag-count {
+    font-size: 0.6em;
+    opacity: 0.75;
+    font-weight: bold;  /* PaperMod 背景色变量 */
+    border-radius: 999px;
+    padding: 0.05em 0.45em;
+    line-height: 1.6;
+}
+
+/* 暗色模式下徽章背景适配 */
+.dark .tag-count {
+}

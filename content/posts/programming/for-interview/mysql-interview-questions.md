@@ -124,6 +124,30 @@ where t.id = a.id
 ## undo log 和 redo log 的区别
 - 缓冲池
 - 数据页
+- redo log
+  - 物理
+  - 持久
+- undo log
+  - 逻辑
+  - 原子 一致
+
+## 事务的隔离性底层是如何保证的？
+- 锁：排他锁
+- MVCC
+  - 多版本并发控制
+  - 依赖于
+    - 隐式字段
+      - DB_TRX_ID
+      - DB_ROLL_PTR
+      - DB_ROW_ID
+    - undo log
+      - 版本链
+    - readview
+      - 快照读
+        - Read Committed 每次 select都生成一个快照读
+        - Repeatable Read 开启事务后第一个 select 语句才是快照读的地方
+      - 核心字段
+        -  
 
 
 ## 深入问题

@@ -1,0 +1,82 @@
+{{- define "main" }}
+
+{{/* ========== 颜色板：10色，色相均匀分布，区分度高 ========== */}}
+{{- $colors := slice
+    "#E05C5C"
+    "#E07A2F"
+    "#D4B800"
+    "#5BBE6A"
+    "#2CA8C2"
+    "#4A7FD4"
+    "#7B5EA7"
+    "#C2568A"
+    "#3DADA8"
+    "#8B7355"
+-}}
+
+{{/* ========== 字体大小范围（em） ========== */}}
+{{- $sizeMin := 1.0 }}
+{{- $sizeMax := 2.8 }}
+
+{{/* ========== 第一次遍历：求文章数 max 和 min ========== */}}
+{{- $scratch := newScratch }}
+{{- $scratch.Set "max" 0 }}
+{{- $scratch.Set "min" 999999 }}
+{{- range .Data.Terms.Alphabetical }}
+    {{- if gt .Count ($scratch.Get "max") }}
+        {{- $scratch.Set "max" .Count }}
+    {{- end }}
+    {{- if lt .Count ($scratch.Get "min") }}
+        {{- $scratch.Set "min" .Count }}
+    {{- end }}
+{{- end }}
+{{- $maxCount := $scratch.Get "max" }}
+{{- $minCount := $scratch.Get "min" }}
+
+{{/* ========== 页头（保留原始结构） ========== */}}
+{{- if .Title }}
+<header class="page-header">
+    <h1>{{ .Title }}</h1>
+    {{- if .Description }}
+    <div class="post-description">
+        {{ .Description }}
+    </div>
+    {{- end }}
+</header>
+{{- end }}
+
+{{/* ========== 第二次遍历：渲染标签云 ========== */}}
+<div class="taxonomy-cloud">
+{{- $colorLen := len $colors }}
+{{- $type := .Type }}
+{{- $idx := 0 }}
+{{- range .Data.Terms.Alphabetical }}
+    {{- $name  := .Name }}
+    {{- $count := .Count }}
+
+    {{/* 线性映射字体大小 */}}
+    {{- $size := $sizeMin }}
+    {{- if gt $maxCount $minCount }}
+        {{- $spanCount := math.Sub $maxCount $minCount }}
+        {{- $ratio     := math.Div (math.Sub $count $minCount | float) ($spanCount | float) }}
+        {{- $size       = math.Add $sizeMin (math.Mul (math.Sub $sizeMax $sizeMin) $ratio) }}
+    {{- end }}
+
+    {{/* 按顺序取颜色 */}}
+    {{- $color := index $colors (mod $idx $colorLen) }}
+
+    {{- with site.GetPage (printf "/%s/%s" $type $name) }}
+    <a class="taxonomy-tag"
+       href="{{ .Permalink }}"
+       style="font-size: {{ printf "%.2f" $size }}em; color: {{ $color }}; border-color: {{ $color }};"
+       title="{{ .LinkTitle }}（{{ $count }} 篇）">
+        <span class="tag-name">{{ .LinkTitle }}</span>
+        <span class="tag-count">{{ $count }}</span>
+    </a>
+    {{- end }}
+
+    {{- $idx = math.Add $idx 1 }}
+{{- end }}
+</div>
+
+{{- end }}{{/* end main */}}
