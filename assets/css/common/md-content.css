@@ -147,26 +147,37 @@
     margin-bottom: 0;
 }
 
-.post-content code {
-    padding: 0.2rem 0.3rem;
-    font-size: 0.78em;
-    line-height: 1.5;
+/* 1. 行内代码 (Inline Code) */
+.md-content :not(pre) > code {
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+    font-size: 0.85em;
+    padding: 0.2rem 0.4rem;
+    margin: 0 0.2rem;
+    color: #e06c75; /* 经典的行内代码浅红/橙色，可根据主题调整 */
     background: var(--code-bg);
-    border-radius: 0.2rem;
+    border-radius: 0.25rem;
+    word-break: break-word; /* 允许行内代码在单词处换行 */
+}
+
+/* 2. 代码块 (Code Block) */
+.md-content pre {
+    margin: 1.2rem 0;
+    background: var(--code-block-bg) !important;
+    border-radius: var(--radius, 8px);
+    overflow-x: auto; /* 激活横向滚动条 */
 }
 
 .md-content pre code {
-    display: grid;
-    margin: auto 0;
-    padding: 10px;
+    display: block; /* 替代 grid，兼容性更好且符合常理 */
+    padding: 1rem;
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+    font-size: 0.9em; /* 代码块字体可以稍大一点 */
+    line-height: 1.6;
     color: rgb(213, 213, 214);
-    background: var(--code-block-bg) !important;
-    border-radius: var(--radius);
-    overflow-x: auto;
-    word-break: break-all;
-}
-
-.md-content blockquote {
+    background: transparent !important; /* 避免与 pre 背景冲突 */
+    white-space: pre; /* 保持代码原样换行，不强制折行 */
+    word-break: normal; /* 配合 overflow-x 允许横向滚动 */
+}ent blockquote {
     margin: 1rem 0;
     padding-inline-start: 1rem;
     border-inline-start: 0.3rem solid var(--content);

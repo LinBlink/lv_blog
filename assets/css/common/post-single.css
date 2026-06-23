@@ -234,3 +234,7 @@ details li ul {
 h1>a>svg {
     display: inline;
 }
+
+.post-single  .entry-cover {
+    display: none;
+}
