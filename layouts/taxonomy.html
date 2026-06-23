@@ -69,6 +69,7 @@
     <a class="taxonomy-tag"
        href="{{ .Permalink }}"
        style="font-size: {{ printf "%.2f" $size }}em; color: {{ $color }}; border-color: {{ $color }};"
+       {{/*  此处VSCode报错正常  */}}
        title="{{ .LinkTitle }}（{{ $count }} 篇）">
         <span class="tag-name">{{ .LinkTitle }}</span>
         <span class="tag-count">{{ $count }}</span>

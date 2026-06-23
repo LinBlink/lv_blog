@@ -3,7 +3,7 @@ date = '2026-06-19T23:19:24+08:00'
 draft = true
 title = 'MySQL 面试题整理'
 categories = ["编程"]
-tags = [""]
+tags = ["面试题"]
 +++
  
 > 面试题从互联网各个角落收集而来
@@ -142,17 +142,63 @@ where t.id = a.id
       - DB_ROW_ID
     - undo log
       - 版本链
+        - 版本链数据访问规则
     - readview
       - 快照读
         - Read Committed 每次 select都生成一个快照读
         - Repeatable Read 开启事务后第一个 select 语句才是快照读的地方
       - 核心字段
-        -  
+        - m_ids
+        - min_trx_id
+        - max_trx_id
+        - creator_trx_id
+      - RC隔离级别下，在事务中每次执行快照读时生成 ReadView
 
+<img style="background:wheat" src="https://img.wathan.cn/images/2026/06/cd548aef09e32fd1e14c29fa8745e0e1b60269f31af92b320c83320d44bdedf1.svg">
+
+
+## MySQL 的主从同步原理
+- 核心：二进制日志
+  - BINLOG
+    - DDL
+    - DML
+主数据库在事务提交时，变更记录写入 Binlog
+从库 binlog -> 中继日志
+从库 中继日志读取事件 -> 从库数据库
+
+## 你们项目用过分库分表吗？
+- 什么时候分库分表
+  - 单表数据量达到1000W 或者 20GB
+  - 优化解决不了性能问题
+  - IO、CPU瓶颈
+- 如何拆分
+  - 垂直拆分
+    - 垂直分库
+      - 不同表拆分到不同库
+      - 适用于微服务
+    - 垂直分表
+      - 不常用字段单独放在一张表
+  - 水平拆分
+    - 水平分库
+      - 一个库的数据拆分到多个库中
+      - 路由规则
+        - 根据id节点取模
+        - 按id范围路由
+    - 水平分表
+      - 一个表的数据拆分到多个表中
+- 新的问题
+  - 分布式事务一致性问题
+  - 跨节点关联查询
+  - 跨节点分页、排序函数
+  - 主键去重
+- 解决方案
+  - 分库分表中间件
+    - mycat
+    - sharding-sphere
 
 ## 深入问题
 
-为什么 InnoDB 主键建议自增？
-为什么非自增主键会导致页分裂？
-为什么 MyISAM 和 InnoDB 索引结构不同？
-为什么 B+树适合磁盘而红黑树不适合？
+1. 为什么 InnoDB 主键建议自增？
+2. 为什么非自增主键会导致页分裂？
+3. 为什么 MyISAM 和 InnoDB 索引结构不同？
+4. 为什么 B+树适合磁盘而红黑树不适合？

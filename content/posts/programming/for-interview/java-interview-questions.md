@@ -2,8 +2,8 @@
 date = '2026-06-23T08:50:54+08:00'
 draft = true
 title = 'Java 面试题整理'
-categories = ["未分类"]
-tags = [""]
+categories = ["编程"]
+tags = ["面试题"]
 [cover]
   image = ""
 +++
