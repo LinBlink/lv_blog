@@ -9,7 +9,6 @@
     /* 使用 Hugo 主题的默认边框颜色 */
     border-radius: 8px;
     /* 圆角 */
-    background-color: var(--entry);
     /* 使用 Hugo 的条目背景色，让图表有凝聚感 */
     box-shadow: var(--shadow);
     /* 可选：加入主题自带的微弱阴影 */
@@ -22,7 +21,6 @@
     z-index: 10;
     padding: 4px 8px;
     font-size: 12px;
-    background-color: var(--theme);
     color: var(--content);
     border: 1px solid var(--border);
     border-radius: 4px;
@@ -48,7 +46,7 @@
   import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.esm.min.mjs';
 
   function getMermaidTheme() {
-    return document.documentElement.dataset.theme === 'dark' ? 'dark' : 'default';
+    return 'dark'
   }
 
   // 新标签页打开图片的核心函数

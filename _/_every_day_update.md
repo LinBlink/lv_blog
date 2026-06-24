@@ -1,5 +1,5 @@
 [WEIGHT](..\content\posts\life\everyday-weight\weight.json)
-[STUDY](..\content\posts\life\daily-study-progress.md)
+[STUDY](..\content\posts\life\daily\daily-study-progress.md)
 
 ## 待学任务
 

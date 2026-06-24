@@ -73,10 +73,10 @@ layout: "home" # 让它作为首页渲染
 }
 
 @keyframes shine {
-  0% {
+  0%,100% {
     left: -60%;
   }
-  100% {
+  80% {
     left: 160%;
   }
 }

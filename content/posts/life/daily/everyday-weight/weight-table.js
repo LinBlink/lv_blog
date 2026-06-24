@@ -16,7 +16,7 @@ switch (lang) {
 
 // 🐷 从服务器读取体重记录文件
 // fetch() 会发起一个 HTTP 请求，返回一个 Promise
-fetch("/posts/life/everyday-weight/weight.json")
+fetch("/posts/life/daily/everyday-weight/weight.json")
   // 📦 第一步：把服务器返回的数据解析成 JSON 对象
   .then((response) => response.json())
 
@@ -47,7 +47,7 @@ fetch("/posts/life/everyday-weight/weight.json")
           index < arr.length - 1 ? arr[index + 1].weight : null;
 
         // 📈 计算相较前一天的变化
-        const diff = prevWeight != null ? (weight - prevWeight).toFixed(1) : 0;
+        const diff = prevWeight != null ? (weight - prevWeight).toFixed(2) : 0;
         const lang = "zh";
 
         // 🏗️ 返回一行 HTML

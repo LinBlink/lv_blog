@@ -1,4 +1,4 @@
-fetch("/posts/life/everyday-weight/weight.json")
+fetch("/posts/life/daily/everyday-weight/weight.json")
   .then(r => r.json())
   .then(({ records, goal }) => {
     const labels  = records.map(r => r.date);

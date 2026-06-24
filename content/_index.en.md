@@ -75,10 +75,10 @@ layout: "home" # Rendition as homepage
 }
 
 @keyframes shine {
-  0% {
+  0%,100% {
     left: -60%;
   }
-  100% {
+  80% {
     left: 160%;
   }
 }

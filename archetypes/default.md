@@ -5,5 +5,5 @@ title = '{{ replace .File.ContentBaseName "-" " " | title }}'
 categories = ["未分类"]
 tags = [""]
 [cover]
-  image = ""
+  image = "https://loremflickr.com/500/200/{{ .File.ContentBaseName }}"
 +++
