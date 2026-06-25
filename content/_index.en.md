@@ -163,7 +163,9 @@ layout: "home" # Rendition as homepage
 
 ## What kind of <span class="magic-text">Ethereal Wind</span> blew you in🍃!
 
-Come on in and see if anything catches your eye, my dear friend😉.
+Come on in and see if anything catches your eye, my dear friend😉. 
+
+英文博客还没有维护，所以这里连个蛋🥚都没有。
 
 <div style="text-align:right">
 📑<a href="/en/posts/work/resume">My Resume</a>

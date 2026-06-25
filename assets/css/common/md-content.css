@@ -177,7 +177,9 @@
     background: transparent !important; /* 避免与 pre 背景冲突 */
     white-space: pre; /* 保持代码原样换行，不强制折行 */
     word-break: normal; /* 配合 overflow-x 允许横向滚动 */
-}ent blockquote {
+}
+
+.md-content  blockquote {
     margin: 1rem 0;
     padding-inline-start: 1rem;
     border-inline-start: 0.3rem solid var(--content);
