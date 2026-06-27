@@ -5,7 +5,7 @@ title = 'Nacos 一些常用配置'
 categories = ["编程"]
 tags = [""]
 [cover]
-  image = "https://loremflickr.com/500/200/programmer"
+  image = "https://devtool.tech/api/placeholder/600/199?text=Nacos常用配置🔧&color=black&fontSize=30&fontFamily=%E5%BE%AE%E8%BD%AF%E9%9B%85%E9%BB%91"
 +++
 
 # bootstrap 配置

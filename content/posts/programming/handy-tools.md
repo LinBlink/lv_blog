@@ -1,11 +1,11 @@
 +++
 date = '2026-06-24T22:51:14+08:00'
 draft = true
-title = '程序员快速参考小手册'
+title = '后端程序员快速参考小手册'
 categories = ["编程"]
 tags = ["快速参考"]
 [cover]
-  image = "https://loremflickr.com/500/200/dictionary"
+  image = "https://devtool.tech/api/placeholder/600/199?text=后端程序员快速参考小手册📕&color=black&fontSize=30&fontFamily=%E5%BE%AE%E8%BD%AF%E9%9B%85%E9%BB%91"
 +++
 
 ## 反向代理（Nginx）

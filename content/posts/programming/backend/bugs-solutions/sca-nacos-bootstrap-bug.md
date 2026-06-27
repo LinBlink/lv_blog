@@ -5,7 +5,7 @@ title = 'SCA 2023.X — Nacos Bootstrap 配置失效问题排查与解决方案'
 categories = ["编程"]
 tags = ["后端疑难杂症解答"]
 [cover]
-  image = "https://loremflickr.com/500/200/coding"
+  image = "https://devtool.tech/api/placeholder/600/199?text=Nacos Bootstrap 配置失效问题排查与解决方案💻&color=black&fontSize=20&fontFamily=%E5%BE%AE%E8%BD%AF%E9%9B%85%E9%BB%91"
 +++
 
 > **Issue 来源**：[spring-cloud-alibaba#3931](https://github.com/alibaba/spring-cloud-alibaba/issues/3931)  

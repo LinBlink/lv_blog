@@ -3,9 +3,9 @@ date = '2026-06-25T09:06:35+08:00'
 draft = true
 title = 'Swagger2和Swagger3注解对比表'
 categories = ["编程"]
-tags = ["后端开发"]
+tags = ["后端疑难杂症解答"]
 [cover]
-  image = "https://loremflickr.com/500/200/swagger"
+  image = "https://devtool.tech/api/placeholder/600/199?text=Swagger2和Swagger3注解对比表🐪&color=black&fontSize=30&fontFamily=%E5%BE%AE%E8%BD%AF%E9%9B%85%E9%BB%91"
 +++
 
 在 Spring Boot 生态中，Swagger 2.0（通常使用 `Foxfire` 依赖）和 Swagger 3.0（通常使用 `Springdoc-openapi` 依赖，基于 OpenAPI 3 规范）的注解发生了很大变化。
