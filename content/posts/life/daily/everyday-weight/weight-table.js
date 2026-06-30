@@ -71,7 +71,7 @@ fetch("/posts/life/daily/everyday-weight/weight.json")
       // 🧵 把所有表格行拼接成一个字符串
       .join("");
 
-    const latest_weight = records.slice().reverse().at(-1).weight;
+    const latest_weight = records.slice().at(-1).weight;
 
     let current_BMI = latest_weight / (1.79 * 1.79);
     current_BMI = current_BMI.toFixed(1);
